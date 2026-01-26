@@ -21,39 +21,41 @@ Click the images below to view the velocity magnitude contours at high resolutio
 :::
 
 # test
-<div style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-  <img id="heightSliderImage" src="images/slices/anim.0000.jpg" style="width:100%; max-width:900px; border-radius: 5px; border: 1px solid #ddd;">
-  
-  <div style="margin-top: 15px;">
-    <p><strong>Height Level:</strong> <span id="heightValue" style="color: #007bff; font-weight: bold;">0</span></p>
-    <input type="range" min="0" max="40" value="0" step="1" id="heightSlider" style="width:90%; cursor: pointer;">
-  </div>
-</div>
-
 <script>
-const slider = document.getElementById('heightSlider');
-const imgDisplay = document.getElementById('heightSliderImage');
-const valDisplay = document.getElementById('heightValue');
+// This wrapper ensures the code only runs after the HTML is ready
+document.addEventListener("DOMContentLoaded", function() {
+    
+    const slider = document.getElementById('heightSlider');
+    const imgDisplay = document.getElementById('heightSliderImage');
+    const valDisplay = document.getElementById('heightValue');
 
-const totalImages = 40; 
-const imageFolder = "images/slices/";
-const images = [];
+    // Check if elements exist to avoid the "null" error
+    if (!slider || !imgDisplay || !valDisplay) {
+        console.error("Slider elements not found in the DOM.");
+        return;
+    }
 
-// Pre-loading logic with 4-digit padding
-for (let i = 0; i <= totalImages; i++) {
-  const img = new Image();
-  // This turns i=1 into "0001"
-  const frameName = i.toString().padStart(4, '0');
-  img.src = `${imageFolder}anim.${frameName}.jpg`;
-  images.push(img);
-}
+    const totalImages = 40; 
+    const imageFolder = "./images/slices/"; 
+    const images = [];
 
-// Interactive update
-slider.oninput = function() {
-  const idx = parseInt(this.value);
-  imgDisplay.src = images[idx].src;
-  valDisplay.innerHTML = idx; 
-};
+    // Pre-loading logic
+    for (let i = 0; i <= totalImages; i++) {
+        const img = new Image();
+        const frameName = i.toString().padStart(4, '0');
+        img.src = `${imageFolder}anim.${frameName}.jpg`;
+        images.push(img);
+    }
+
+    // Interactive update
+    slider.oninput = function() {
+        const idx = parseInt(this.value);
+        if (images[idx]) {
+            imgDisplay.src = images[idx].src;
+            valDisplay.innerHTML = idx;
+        }
+    };
+});
 </script>
 
 ## Discussion
