@@ -25,6 +25,7 @@ Click the images below to view the velocity magnitude contours at high resolutio
 
 
 ```{=html}
+```{=html}
 <div id="velocity-explorer" style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px;">
   <img id="heightSliderImage" src="images/slices/anim.0000.jpeg" style="width:100%; max-width:900px; border-radius: 5px;">
   
@@ -48,8 +49,12 @@ Click the images below to view the velocity magnitude contours at high resolutio
       for (let i = 0; i <= totalImages; i++) {
         const img = new Image();
         const frameName = i.toString().padStart(4, '0');
+        // Standardized to .jpeg
         img.src = `${imageFolder}anim.${frameName}.jpeg`;
         images.push(img);
+        
+        // Debugging the first path
+        if (i === 0) console.log("Attempting to load:", img.src);
       }
 
       slider.oninput = function() {
