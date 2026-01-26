@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - "projects/bariloche/images/slices/*.jpeg"
 
 website:
   title: "Santiago Zuniga"
