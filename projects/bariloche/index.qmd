@@ -23,14 +23,12 @@ Click the images below to view the velocity magnitude contours at high resolutio
 # test
 
 
-
-```{=html}
 ```{=html}
 <div id="velocity-explorer" style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px;">
   <img id="heightSliderImage" src="images/slices/anim.0000.jpeg" style="width:100%; max-width:900px; border-radius: 5px;">
   
   <div style="margin-top: 15px;">
-    <p><strong>Height Level:</strong> <span id="heightValue" style="color: #007bff; font-weight: bold;">0</span></p>
+    <p><strong>Height from ground:</strong> <span id="heightValue" style="color: #007bff; font-weight: bold;">0</span></p>
     <input type="range" min="0" max="40" value="0" step="1" id="heightSlider" style="width:90%;">
   </div>
 
@@ -61,7 +59,7 @@ Click the images below to view the velocity magnitude contours at high resolutio
         const idx = parseInt(this.value);
         if (images[idx]) {
           imgDisplay.src = images[idx].src;
-          valDisplay.innerHTML = idx;
+          valDisplay.innerHTML = (idx + 0.5) + " m";
         }
       };
     })();
