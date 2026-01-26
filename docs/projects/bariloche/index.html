@@ -182,42 +182,43 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="test" class="level1">
 <h1>test</h1>
+<div id="velocity-explorer" style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px;">
+<p><img id="heightSliderImage" src="images/slices/anim.0000.jpg" style="width:100%; max-width:900px; border-radius: 5px;"></p>
+<div style="margin-top: 15px;">
+<pre><code>&lt;p&gt;&lt;strong&gt;Height Level:&lt;/strong&gt; &lt;span id="heightValue" style="color: #007bff; font-weight: bold;"&gt;0&lt;/span&gt;&lt;/p&gt;
+&lt;input type="range" min="0" max="40" value="0" step="1" id="heightSlider" style="width:90%;"&gt;</code></pre>
+</div>
 <script>
-// This wrapper ensures the code only runs after the HTML is ready
-document.addEventListener("DOMContentLoaded", function() {
-    
-    const slider = document.getElementById('heightSlider');
-    const imgDisplay = document.getElementById('heightSliderImage');
-    const valDisplay = document.getElementById('heightValue');
+    (function() {
+      const slider = document.getElementById('heightSlider');
+      const imgDisplay = document.getElementById('heightSliderImage');
+      const valDisplay = document.getElementById('heightValue');
 
-    // Check if elements exist to avoid the "null" error
-    if (!slider || !imgDisplay || !valDisplay) {
-        console.error("Slider elements not found in the DOM.");
-        return;
-    }
+      if (!slider || !imgDisplay) return;
 
-    const totalImages = 40; 
-    const imageFolder = "./images/slices/"; 
-    const images = [];
+      const totalImages = 40; 
+      const imageFolder = "./images/slices/"; 
+      const images = [];
 
-    // Pre-loading logic
-    for (let i = 0; i <= totalImages; i++) {
+      // Pre-load images
+      for (let i = 0; i <= totalImages; i++) {
         const img = new Image();
         const frameName = i.toString().padStart(4, '0');
         img.src = `${imageFolder}anim.${frameName}.jpg`;
         images.push(img);
-    }
+      }
 
-    // Interactive update
-    slider.oninput = function() {
+      // Update function
+      slider.oninput = function() {
         const idx = parseInt(this.value);
         if (images[idx]) {
-            imgDisplay.src = images[idx].src;
-            valDisplay.innerHTML = idx;
+          imgDisplay.src = images[idx].src;
+          valDisplay.innerHTML = idx;
         }
-    };
-});
-</script>
+      };
+    })();
+  </script>
+</div>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
 <p>The simulation suggests that a 15% increase in porous barriers leads to a 25% reduction in pedestrian-level wind speeds in the target zones.</p>

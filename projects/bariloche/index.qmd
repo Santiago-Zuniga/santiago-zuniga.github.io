@@ -21,42 +21,47 @@ Click the images below to view the velocity magnitude contours at high resolutio
 :::
 
 # test
-<script>
-// This wrapper ensures the code only runs after the HTML is ready
-document.addEventListener("DOMContentLoaded", function() {
-    
-    const slider = document.getElementById('heightSlider');
-    const imgDisplay = document.getElementById('heightSliderImage');
-    const valDisplay = document.getElementById('heightValue');
 
-    // Check if elements exist to avoid the "null" error
-    if (!slider || !imgDisplay || !valDisplay) {
-        console.error("Slider elements not found in the DOM.");
-        return;
-    }
 
-    const totalImages = 40; 
-    const imageFolder = "./images/slices/"; 
-    const images = [];
+<div id="velocity-explorer" style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px;">
+  <img id="heightSliderImage" src="images/slices/anim.0000.jpg" style="width:100%; max-width:900px; border-radius: 5px;">
+  
+  <div style="margin-top: 15px;">
+    <p><strong>Height Level:</strong> <span id="heightValue" style="color: #007bff; font-weight: bold;">0</span></p>
+    <input type="range" min="0" max="40" value="0" step="1" id="heightSlider" style="width:90%;">
+  </div>
 
-    // Pre-loading logic
-    for (let i = 0; i <= totalImages; i++) {
+  <script>
+    (function() {
+      const slider = document.getElementById('heightSlider');
+      const imgDisplay = document.getElementById('heightSliderImage');
+      const valDisplay = document.getElementById('heightValue');
+
+      if (!slider || !imgDisplay) return;
+
+      const totalImages = 40; 
+      const imageFolder = "./images/slices/"; 
+      const images = [];
+
+      // Pre-load images
+      for (let i = 0; i <= totalImages; i++) {
         const img = new Image();
         const frameName = i.toString().padStart(4, '0');
         img.src = `${imageFolder}anim.${frameName}.jpg`;
         images.push(img);
-    }
+      }
 
-    // Interactive update
-    slider.oninput = function() {
+      // Update function
+      slider.oninput = function() {
         const idx = parseInt(this.value);
         if (images[idx]) {
-            imgDisplay.src = images[idx].src;
-            valDisplay.innerHTML = idx;
+          imgDisplay.src = images[idx].src;
+          valDisplay.innerHTML = idx;
         }
-    };
-});
-</script>
+      };
+    })();
+  </script>
+</div>
 
 ## Discussion
 The simulation suggests that a 15% increase in porous barriers leads to a 25% reduction in pedestrian-level wind speeds in the target zones.
