@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-01-26">
 
-<title>index – Santiago Zuniga</title>
+<title>Urban Wind Mitigation in San Carlos de Bariloche – Santiago Zuniga</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,6 +42,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,18 +117,69 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome-to-my-cfd-portfolio" id="toc-welcome-to-my-cfd-portfolio" class="nav-link active" data-scroll-target="#welcome-to-my-cfd-portfolio">Welcome to my CFD Portfolio</a></li>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link active" data-scroll-target="#the-problem">The Problem</a></li>
+  <li><a href="#simulation-framework" id="toc-simulation-framework" class="nav-link" data-scroll-target="#simulation-framework">Simulation Framework</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Urban Wind Mitigation in San Carlos de Bariloche</h1>
+<p class="subtitle lead">Optimizing tree placement to reduce wind erosion using OpenFOAM</p>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="welcome-to-my-cfd-portfolio" class="level1">
-<h1>Welcome to my CFD Portfolio</h1>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 26, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
+<p>In Bariloche, the prevailing Patagonian winds create high-shear zones in the city center. This project explores how urban vegetation can be strategically placed to mitigate wind erosion.</p>
+</section>
+<section id="simulation-framework" class="level2">
+<h2 class="anchored" data-anchor-id="simulation-framework">Simulation Framework</h2>
+<p>To capture the complexity of the urban terrain, I utilized: * <strong>Solver:</strong> <code>simpleFoam</code> for steady-state incompressible flow. * <strong>Meshing:</strong> <code>snappyHexMesh</code> refined around building edges. * <strong>Porosity:</strong> Trees were modeled as porous zones with Darcy-Forchheimer coefficients.</p>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<p>Click the images below to view the velocity magnitude contours at high resolution.</p>
+<div class="quarto-layout-panel" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/press1.jpg" class="lightbox" data-gallery="wind" title="Figure 1: Comparison of baseline wind flow vs.&nbsp;proposed tree barriers."><img src="images/press1.jpg" class="img-fluid figure-img" alt="Figure 1: Comparison of baseline wind flow vs.&nbsp;proposed tree barriers."></a></p>
+<figcaption>Figure 1: Comparison of baseline wind flow vs.&nbsp;proposed tree barriers.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<p>The simulation suggests that a 15% increase in porous barriers leads to a 25% reduction in pedestrian-level wind speeds in the target zones.</p>
 
 
 </section>
@@ -531,6 +586,38 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

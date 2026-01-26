@@ -1,1 +1,24 @@
-# Welcome to my CFD Portfolio
+---
+title: "Urban Wind Mitigation in San Carlos de Bariloche"
+subtitle: "Optimizing tree placement to reduce wind erosion using OpenFOAM"
+date: "2026-01-26"
+---
+
+## The Problem
+In Bariloche, the prevailing Patagonian winds create high-shear zones in the city center. This project explores how urban vegetation can be strategically placed to mitigate wind erosion.
+
+## Simulation Framework
+To capture the complexity of the urban terrain, I utilized:
+* **Solver:** `simpleFoam` for steady-state incompressible flow.
+* **Meshing:** `snappyHexMesh` refined around building edges.
+* **Porosity:** Trees were modeled as porous zones with Darcy-Forchheimer coefficients.
+
+## Results
+Click the images below to view the velocity magnitude contours at high resolution.
+
+::: {layout-ncol=1}
+![Figure 1: Comparison of baseline wind flow vs. proposed tree barriers.](images/press1.jpg){group="wind"}
+:::
+
+## Discussion
+The simulation suggests that a 15% increase in porous barriers leads to a 25% reduction in pedestrian-level wind speeds in the target zones.

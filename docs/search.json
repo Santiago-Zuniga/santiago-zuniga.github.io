@@ -2,9 +2,37 @@
   {
     "objectID": "projects/bariloche/index.html",
     "href": "projects/bariloche/index.html",
-    "title": "Welcome to my CFD Portfolio",
+    "title": "Urban Wind Mitigation in San Carlos de Bariloche",
     "section": "",
-    "text": "Welcome to my CFD Portfolio"
+    "text": "In Bariloche, the prevailing Patagonian winds create high-shear zones in the city center. This project explores how urban vegetation can be strategically placed to mitigate wind erosion."
+  },
+  {
+    "objectID": "projects/bariloche/index.html#the-problem",
+    "href": "projects/bariloche/index.html#the-problem",
+    "title": "Urban Wind Mitigation in San Carlos de Bariloche",
+    "section": "",
+    "text": "In Bariloche, the prevailing Patagonian winds create high-shear zones in the city center. This project explores how urban vegetation can be strategically placed to mitigate wind erosion."
+  },
+  {
+    "objectID": "projects/bariloche/index.html#simulation-framework",
+    "href": "projects/bariloche/index.html#simulation-framework",
+    "title": "Urban Wind Mitigation in San Carlos de Bariloche",
+    "section": "Simulation Framework",
+    "text": "Simulation Framework\nTo capture the complexity of the urban terrain, I utilized: * Solver: simpleFoam for steady-state incompressible flow. * Meshing: snappyHexMesh refined around building edges. * Porosity: Trees were modeled as porous zones with Darcy-Forchheimer coefficients."
+  },
+  {
+    "objectID": "projects/bariloche/index.html#results",
+    "href": "projects/bariloche/index.html#results",
+    "title": "Urban Wind Mitigation in San Carlos de Bariloche",
+    "section": "Results",
+    "text": "Results\nClick the images below to view the velocity magnitude contours at high resolution.\n\n\n\n\n\n\nFigure 1: Comparison of baseline wind flow vs. proposed tree barriers."
+  },
+  {
+    "objectID": "projects/bariloche/index.html#discussion",
+    "href": "projects/bariloche/index.html#discussion",
+    "title": "Urban Wind Mitigation in San Carlos de Bariloche",
+    "section": "Discussion",
+    "text": "Discussion\nThe simulation suggests that a 15% increase in porous barriers leads to a 25% reduction in pedestrian-level wind speeds in the target zones."
   },
   {
     "objectID": "index.html",
