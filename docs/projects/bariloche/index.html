@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-01-26">
 
-<title>Urban Wind Mitigation in San Carlos de Bariloche – Santiago Zuniga</title>
+<title>Urban Wind San Carlos de Bariloche – Santiago Zuniga</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,10 +117,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-problem" id="toc-the-problem" class="nav-link active" data-scroll-target="#the-problem">The Problem</a></li>
+  <li><a href="#the-controversial-bariloche-center-building" id="toc-the-controversial-bariloche-center-building" class="nav-link active" data-scroll-target="#the-controversial-bariloche-center-building">The controversial Bariloche Center building</a></li>
   <li><a href="#simulation-framework" id="toc-simulation-framework" class="nav-link" data-scroll-target="#simulation-framework">Simulation Framework</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#test" id="toc-test" class="nav-link" data-scroll-target="#test">test</a>
+  <ul class="collapse">
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -129,8 +132,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Urban Wind Mitigation in San Carlos de Bariloche</h1>
-<p class="subtitle lead">Optimizing tree placement to reduce wind erosion using OpenFOAM</p>
+<h1 class="title">Urban Wind San Carlos de Bariloche</h1>
+<p class="subtitle lead">Simulating urban wind around the tallest building in Bariloche using OpenFOAM</p>
 </div>
 
 
@@ -153,9 +156,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="the-problem" class="level2">
-<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
-<p>In Bariloche, the prevailing Patagonian winds create high-shear zones in the city center. This project explores how urban vegetation can be strategically placed to mitigate wind erosion.</p>
+<section id="the-controversial-bariloche-center-building" class="level2">
+<h2 class="anchored" data-anchor-id="the-controversial-bariloche-center-building">The controversial Bariloche Center building</h2>
+<p>Everyone who has visited,</p>
 </section>
 <section id="simulation-framework" class="level2">
 <h2 class="anchored" data-anchor-id="simulation-framework">Simulation Framework</h2>
@@ -177,11 +180,46 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
+<section id="test" class="level1">
+<h1>test</h1>
+<div style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+<p><img id="heightSliderImage" src="images/slices/anim.0000.jpg" style="width:100%; max-width:900px; border-radius: 5px; border: 1px solid #ddd;"></p>
+<div style="margin-top: 15px;">
+<pre><code>&lt;p&gt;&lt;strong&gt;Height Level:&lt;/strong&gt; &lt;span id="heightValue" style="color: #007bff; font-weight: bold;"&gt;0&lt;/span&gt;&lt;/p&gt;
+&lt;input type="range" min="0" max="40" value="0" step="1" id="heightSlider" style="width:90%; cursor: pointer;"&gt;</code></pre>
+</div>
+</div>
+<script>
+const slider = document.getElementById('heightSlider');
+const imgDisplay = document.getElementById('heightSliderImage');
+const valDisplay = document.getElementById('heightValue');
+
+const totalImages = 40; 
+const imageFolder = "images/slices/";
+const images = [];
+
+// Pre-loading logic with 4-digit padding
+for (let i = 0; i <= totalImages; i++) {
+  const img = new Image();
+  // This turns i=1 into "0001"
+  const frameName = i.toString().padStart(4, '0');
+  img.src = `${imageFolder}anim.${frameName}.jpg`;
+  images.push(img);
+}
+
+// Interactive update
+slider.oninput = function() {
+  const idx = parseInt(this.value);
+  imgDisplay.src = images[idx].src;
+  valDisplay.innerHTML = idx; 
+};
+</script>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
 <p>The simulation suggests that a 15% increase in porous barriers leads to a 25% reduction in pedestrian-level wind speeds in the target zones.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

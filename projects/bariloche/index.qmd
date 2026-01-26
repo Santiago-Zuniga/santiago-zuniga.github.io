@@ -1,11 +1,11 @@
 ---
-title: "Urban Wind Mitigation in San Carlos de Bariloche"
-subtitle: "Optimizing tree placement to reduce wind erosion using OpenFOAM"
+title: "Urban Wind San Carlos de Bariloche"
+subtitle: "Simulating urban wind around the tallest building in Bariloche using OpenFOAM"
 date: "2026-01-26"
 ---
 
-## The Problem
-In Bariloche, the prevailing Patagonian winds create high-shear zones in the city center. This project explores how urban vegetation can be strategically placed to mitigate wind erosion.
+## The controversial Bariloche Center building
+Everyone who has visited, 
 
 ## Simulation Framework
 To capture the complexity of the urban terrain, I utilized:
@@ -19,6 +19,42 @@ Click the images below to view the velocity magnitude contours at high resolutio
 ::: {layout-ncol=1}
 ![Figure 1: Comparison of baseline wind flow vs. proposed tree barriers.](images/press1.jpg){group="wind"}
 :::
+
+# test
+<div style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+  <img id="heightSliderImage" src="images/slices/anim.0000.jpg" style="width:100%; max-width:900px; border-radius: 5px; border: 1px solid #ddd;">
+  
+  <div style="margin-top: 15px;">
+    <p><strong>Height Level:</strong> <span id="heightValue" style="color: #007bff; font-weight: bold;">0</span></p>
+    <input type="range" min="0" max="40" value="0" step="1" id="heightSlider" style="width:90%; cursor: pointer;">
+  </div>
+</div>
+
+<script>
+const slider = document.getElementById('heightSlider');
+const imgDisplay = document.getElementById('heightSliderImage');
+const valDisplay = document.getElementById('heightValue');
+
+const totalImages = 40; 
+const imageFolder = "images/slices/";
+const images = [];
+
+// Pre-loading logic with 4-digit padding
+for (let i = 0; i <= totalImages; i++) {
+  const img = new Image();
+  // This turns i=1 into "0001"
+  const frameName = i.toString().padStart(4, '0');
+  img.src = `${imageFolder}anim.${frameName}.jpg`;
+  images.push(img);
+}
+
+// Interactive update
+slider.oninput = function() {
+  const idx = parseInt(this.value);
+  imgDisplay.src = images[idx].src;
+  valDisplay.innerHTML = idx; 
+};
+</script>
 
 ## Discussion
 The simulation suggests that a 15% increase in porous barriers leads to a 25% reduction in pedestrian-level wind speeds in the target zones.
