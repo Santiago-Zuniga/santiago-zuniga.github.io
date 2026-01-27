@@ -134,6 +134,7 @@ The workflow involved a complete CFD pipeline:
 * **Meshing:** Generating high-fidelity computational grids using `snappyHexMesh`.
 * **Solving:** Executing steady-state simulations within the **OpenFOAM** environment.
 * **Post-processing:** Utilizing **ParaView**, **Python**, and specialized image manipulation for results visualization.
+* **Analysis:** Interpreting local flow phenomena (such as updrafts) to quantify their impact on pedestrian comfort.
 :::
 
 Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let's connect!
