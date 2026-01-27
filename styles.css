@@ -1,0 +1,16 @@
+/* Custom Light Sepia / Technical Paper Theme */
+body {
+    background-color: #fdf6e3; /* Very light sepia / solarized light */
+    color: #586e75;           /* Soft dark grey for better readability */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.quarto-title-block .quarto-title .title {
+    color: #b58900; /* Subtle gold/bronze for the main title */
+}
+
+/* Make the code/simulation blocks look like they are on a slightly darker paper */
+#velocity-explorer {
+    background: #eee8d5 !important; 
+    border: 1px solid #d3af37;
+}
