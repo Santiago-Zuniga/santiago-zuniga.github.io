@@ -12,7 +12,7 @@ Positioned almost perpendicular to the region's predominant winds, this massive 
 As shown in the wind rose below, the frequency of these high-velocity events is directly tied to the dominant Western and North-Western wind directions hitting the building's broad face.
 
 ::: {layout-ncol=1}
-![Figure 1: Wind rose for wind direction frequency at the city center. Wind data obtained from [Global Wind Atlas](https://globalwindatlas.info).](images/rose_final.jpg){group="none1"}
+![Figure 1: Wind rose illustrating wind direction frequency at the Bariloche city center, with data sourced from [Global Wind Atlas](https://globalwindatlas.info).](images/rose_final.jpg){group="none1"}
 :::
 
 This brings up the question: How much does the Bariloche Center building really impact street-level wind gusts? We will answer that by using CFD tools to simulate the wind in the surrounding blocks and observing the resulting velocity fields.
@@ -26,20 +26,11 @@ The simulations were conducted using the `simpleFoam` solver for steady-state in
 <!-- ::: {layout-ncol=1}
 ![Figure 2: View of the .](images/malla1.jpg){group="mesh"}
 ::: -->
-::: {layout-ncol=1}
-![Figure 2: Closeup of the computational mesh used, with refinement around the buildings for the finer mesh.](images/malla2.png){group="mesh"}
+::: {layout-ncol=2}
+![Figure 2: Surface mesh refinement on the Bariloche Center and adjacent structures.](images/malla2.png){group="mesh"}
+
+![Figure 3: Vertical cross-section of the computational domain, illustrating the progressive mesh refinement layers within the urban canopy.](images/malla3.png){group="mesh"}
 :::
-::: {layout-ncol=1}
-![Figure 3: Slice of the domain, showing the mesh refinenment around the buildings for the finer mesh.](images/malla3.png){group="mesh"}
-:::
-
-
-
-
-
-
-
-
 
 
 
