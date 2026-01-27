@@ -53,7 +53,7 @@ To further illustrate this phenomenon, Figure 6 provides a street-level perspect
 
 ::: {layout-ncol=1}
 ![Figure 6: Wind streamlines at street-level.](images/stream2.jpeg){group="results"}
-![Figure 7: Vertical component of wind at 1.5 m above ground.](images/top2.jpeg){group="results"}
+![Figure 7: Vertical component of wind at 1.5 m above ground.](images/top2.jpg){group="results"}
 :::
 
 Finally, by moving the slider below, the wind speed at different heights can be seen, revealing the extensive wake produced by the largest building in Bariloche.
