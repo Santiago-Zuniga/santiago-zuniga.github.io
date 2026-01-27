@@ -1,16 +1,40 @@
-/* Custom Light Sepia / Technical Paper Theme */
+/* Custom Technical Sepia Theme */
+
+/* 1. Global Background */
 body {
-    background-color: #fdf6e3; /* Very light sepia / solarized light */
-    color: #586e75;           /* Soft dark grey for better readability */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fdf6e3 !important;
+    color: #586e75 !important;
 }
 
-.quarto-title-block .quarto-title .title {
-    color: #b58900; /* Subtle gold/bronze for the main title */
+/* 2. Fix the Navbar (Header) */
+#quarto-header .navbar {
+    background-color: #eee8d5 !important; /* Slightly darker sepia */
+    border-bottom: 1px solid #d3af37 !important;
 }
 
-/* Make the code/simulation blocks look like they are on a slightly darker paper */
+/* 3. Darken the Main Title and Headings */
+h1, .title, .quarto-title .title {
+    color: #073642 !important; /* Very dark slate blue/grey for high contrast */
+    font-weight: 700;
+}
+
+h2, h3 {
+    color: #268bd2 !important; /* Muted blue for subheadings */
+}
+
+/* 4. Fix Navbar Text Color */
+.navbar-brand, .nav-link {
+    color: #586e75 !important;
+}
+
+.nav-link:hover {
+    color: #b58900 !important; /* Gold hover effect */
+}
+
+/* 5. Match the Slider Box to the Theme */
 #velocity-explorer {
-    background: #eee8d5 !important; 
+    background: #eee8d5 !important;
     border: 1px solid #d3af37;
+    padding: 25px;
+    border-radius: 12px;
 }
