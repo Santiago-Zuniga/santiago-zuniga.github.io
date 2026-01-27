@@ -117,11 +117,11 @@ Next time you are struggling to make headway past the building, just remember th
 
 ---
 
-::: {.column-screen .footer style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;"}
+::: {.column-screen style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;"}
 
 ### Behind the Simulation
 
-This project was born out of equal parts curiosity and a personal vendetta against the wind on San Martín Street. It is a deep dive into urban aerodynamics using the most iconic (and wind-swept) building in Bariloche as a case study. This simulation captures the complex interaction between high-altitude Patagonian winds and the city's unique architecture at pedestrian level. 
+This project was born out of equal parts curiosity and a personal vendetta against the wind on San Martín Street. It is a deep dive into urban aerodynamics using the most iconic (and wind-swept) building in Bariloche as a case study. This simulation captures the complex interaction between high-altitude Patagonian winds and the city’s unique architecture at pedestrian level. 
 
 Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let's connect!
 
