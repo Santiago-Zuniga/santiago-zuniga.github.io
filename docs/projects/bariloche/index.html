@@ -117,8 +117,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-controversial-bariloche-center-building" id="toc-the-controversial-bariloche-center-building" class="nav-link active" data-scroll-target="#the-controversial-bariloche-center-building">The controversial Bariloche Center building</a></li>
-  <li><a href="#simulation-framework" id="toc-simulation-framework" class="nav-link" data-scroll-target="#simulation-framework">Simulation Framework</a></li>
+  <li><a href="#the-bariloche-center-building" id="toc-the-bariloche-center-building" class="nav-link active" data-scroll-target="#the-bariloche-center-building">The Bariloche Center building</a></li>
+  <li><a href="#simulation-details" id="toc-simulation-details" class="nav-link" data-scroll-target="#simulation-details">Simulation details</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   <li><a href="#test" id="toc-test" class="nav-link" data-scroll-target="#test">test</a>
   <ul class="collapse">
@@ -156,13 +156,56 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="the-controversial-bariloche-center-building" class="level2">
-<h2 class="anchored" data-anchor-id="the-controversial-bariloche-center-building">The controversial Bariloche Center building</h2>
-<p>Everyone who has visited,</p>
+<section id="the-bariloche-center-building" class="level2">
+<h2 class="anchored" data-anchor-id="the-bariloche-center-building">The Bariloche Center building</h2>
+<p>Anyone who has visited Bariloche is familiar with the Bariloche Center. Built in the 1970s, this ten-story concrete monolith stands in stark contrast to the traditional mountain village aesthetic of the Centro Cívico just meters away.</p>
+<p>Positioned almost perpendicular to the region’s predominant winds, this massive slab acts as a giant blockage, forcing the air to accelerate as it tries to navigate around the structure. Local pedestrians know this effect all too well: even on days with only a slight breeze, the way the building disrupts and funnels the air creates intense, localized gusts at street level.</p>
+<p>As shown in the wind rose below, the frequency of these high-velocity events is directly tied to the dominant Western and North-Western wind directions hitting the building’s broad face.</p>
+<div class="quarto-layout-panel" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/rose_final.jpg" class="lightbox" data-gallery="none1" title="Figure 1: Wind rose for wind direction frequency at the city center. Wind data obtained from Global Wind Atlas."><img src="images/rose_final.jpg" class="img-fluid figure-img" alt="Figure 1: Wind rose for wind direction frequency at the city center. Wind data obtained from Global Wind Atlas."></a></p>
+<figcaption>Figure 1: Wind rose for wind direction frequency at the city center. Wind data obtained from <a href="https://globalwindatlas.info">Global Wind Atlas</a>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>This brings up the question: How much does the Bariloche Center building really impact street-level wind gusts? We will answer that by using CFD tools to simulate the wind in the surrounding blocks and observing the resulting velocity fields.</p>
 </section>
-<section id="simulation-framework" class="level2">
-<h2 class="anchored" data-anchor-id="simulation-framework">Simulation Framework</h2>
-<p>To capture the complexity of the urban terrain, I utilized: * <strong>Solver:</strong> <code>simpleFoam</code> for steady-state incompressible flow. * <strong>Meshing:</strong> <code>snappyHexMesh</code> refined around building edges. * <strong>Porosity:</strong> Trees were modeled as porous zones with Darcy-Forchheimer coefficients.</p>
+<section id="simulation-details" class="level2">
+<h2 class="anchored" data-anchor-id="simulation-details">Simulation details</h2>
+<p>To capture the complexity of the urban terrain, the topography of the ground and all 3D buildings were exported from <a href="https://www.openstreetmap.org/">OpenStreetMap</a> and processed in AutoCAD to generate the necessary STL surfaces. The computational mesh was then generated using OpenFOAM’s <code>snappyHexMesh</code> utility, with significant refinement applied near building surfaces to accurately capture flow separation and corner vortices. Two mesh levels were developed for this study: a baseline low-resolution mesh of approximately 800k cells for initial solver validation, and a production high-resolution mesh of 4M cells for the final analysis.</p>
+<p>The simulations were conducted using the <code>simpleFoam</code> solver for steady-state incompressible flow, utilizing the <code>k-epsilon</code> turbulence model. To represent the incoming wind, an <code>atmBoundaryLayerInletVelocity</code> condition was applied at the inlet. This condition modeled the atmospheric boundary layer by utilizing the average wind speed and direction, derived from <a href="https://globalwindatlas.info">Global Wind Atlas</a> data to establish a realistic velocity profile.</p>
+<!-- ::: {layout-ncol=1}
+![Figure 2: View of the .](images/malla1.jpg){group="mesh"}
+::: -->
+<div class="quarto-layout-panel" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/malla2.jpg" class="lightbox" data-gallery="mesh" title="Figure 2: Closeup of the computational mesh used, with refinement around the buildings for the finer mesh."><img src="images/malla2.jpg" class="img-fluid figure-img" alt="Figure 2: Closeup of the computational mesh used, with refinement around the buildings for the finer mesh."></a></p>
+<figcaption>Figure 2: Closeup of the computational mesh used, with refinement around the buildings for the finer mesh.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/malla3.jpg" class="lightbox" data-gallery="mesh" title="Figure 3: Slice of the domain, showing the mesh refinenment around the buildings for the finer mesh."><img src="images/malla3.jpg" class="img-fluid figure-img" alt="Figure 3: Slice of the domain, showing the mesh refinenment around the buildings for the finer mesh."></a></p>
+<figcaption>Figure 3: Slice of the domain, showing the mesh refinenment around the buildings for the finer mesh.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>

@@ -4,14 +4,44 @@ subtitle: "Simulating urban wind around the tallest building in Bariloche using 
 date: "2026-01-26"
 ---
 
-## The controversial Bariloche Center building
-Everyone who has visited, 
+## The Bariloche Center building
+Anyone who has visited Bariloche is familiar with the Bariloche Center. Built in the 1970s, this ten-story concrete monolith stands in stark contrast to the traditional mountain village aesthetic of the Centro Cívico just meters away.  
 
-## Simulation Framework
-To capture the complexity of the urban terrain, I utilized:
-* **Solver:** `simpleFoam` for steady-state incompressible flow.
-* **Meshing:** `snappyHexMesh` refined around building edges.
-* **Porosity:** Trees were modeled as porous zones with Darcy-Forchheimer coefficients.
+Positioned almost perpendicular to the region's predominant winds, this massive slab acts as a giant blockage, forcing the air to accelerate as it tries to navigate around the structure. Local pedestrians know this effect all too well: even on days with only a slight breeze, the way the building disrupts and funnels the air creates intense, localized gusts at street level.  
+
+As shown in the wind rose below, the frequency of these high-velocity events is directly tied to the dominant Western and North-Western wind directions hitting the building's broad face.
+
+::: {layout-ncol=1}
+![Figure 1: Wind rose for wind direction frequency at the city center. Wind data obtained from [Global Wind Atlas](https://globalwindatlas.info).](images/rose_final.jpg){group="none1"}
+:::
+
+This brings up the question: How much does the Bariloche Center building really impact street-level wind gusts? We will answer that by using CFD tools to simulate the wind in the surrounding blocks and observing the resulting velocity fields.
+
+## Simulation details
+To capture the complexity of the urban terrain, the topography of the ground and all 3D buildings were exported from [OpenStreetMap](https://www.openstreetmap.org/) and processed in AutoCAD to generate the necessary STL surfaces. The computational mesh was then generated using OpenFOAM’s `snappyHexMesh` utility, with significant refinement applied near building surfaces to accurately capture flow separation and corner vortices. Two mesh levels were developed for this study: a baseline low-resolution mesh of approximately 800k cells for initial solver validation, and a production high-resolution mesh of 4M cells for the final analysis.
+
+The simulations were conducted using the `simpleFoam` solver for steady-state incompressible flow, utilizing the `k-epsilon` turbulence model. To represent the incoming wind, an `atmBoundaryLayerInletVelocity` condition was applied at the inlet. This condition modeled the atmospheric boundary layer by utilizing the average wind speed and direction, derived from [Global Wind Atlas](https://globalwindatlas.info) data to establish a realistic velocity profile.
+
+
+<!-- ::: {layout-ncol=1}
+![Figure 2: View of the .](images/malla1.jpg){group="mesh"}
+::: -->
+::: {layout-ncol=1}
+![Figure 2: Closeup of the computational mesh used, with refinement around the buildings for the finer mesh.](images/malla2.jpg){group="mesh"}
+:::
+::: {layout-ncol=1}
+![Figure 3: Slice of the domain, showing the mesh refinenment around the buildings for the finer mesh.](images/malla3.jpg){group="mesh"}
+:::
+
+
+
+
+
+
+
+
+
+
 
 ## Results
 Click the images below to view the velocity magnitude contours at high resolution.
