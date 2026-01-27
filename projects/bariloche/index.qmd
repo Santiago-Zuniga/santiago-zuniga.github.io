@@ -27,10 +27,10 @@ The simulations were conducted using the `simpleFoam` solver for steady-state in
 ![Figure 2: View of the .](images/malla1.jpg){group="mesh"}
 ::: -->
 ::: {layout-ncol=1}
-![Figure 2: Closeup of the computational mesh used, with refinement around the buildings for the finer mesh.](images/malla2.jpg){group="mesh"}
+![Figure 2: Closeup of the computational mesh used, with refinement around the buildings for the finer mesh.](images/malla2.png){group="mesh"}
 :::
 ::: {layout-ncol=1}
-![Figure 3: Slice of the domain, showing the mesh refinenment around the buildings for the finer mesh.](images/malla3.jpg){group="mesh"}
+![Figure 3: Slice of the domain, showing the mesh refinenment around the buildings for the finer mesh.](images/malla3.png){group="mesh"}
 :::
 
 
