@@ -51,10 +51,12 @@ To determine if these perturbations affect the conditions at street level, we ca
 
 To further illustrate this phenomenon, Figure 6 provides a street-level perspective using Street View imagery overlaid with simulated wind streamlines. This highlights another reality of this specific location: the wind on the sidewalk directly adjacent to the *Bariloche Center* typically rises due to significant updrafts, whereas it descends from above on the opposite sidewalk. Figure 7 confirms this behavior by displaying the vertical component of the wind at 1.5 m above ground level.
 
-
+::: {layout-ncol=1}
 ![Figure 6: Wind streamlines at street-level.](images/stream2.jpeg){group="results"}
+:::
+::: {layout-ncol=1}
 ![Figure 7: Vertical component of wind at 1.5 m above ground.](images/top2.jpg){group="results"}
-
+:::
 
 Finally, by moving the slider below, the wind speed at different heights can be seen, revealing the extensive wake produced by the largest building in Bariloche.
 
