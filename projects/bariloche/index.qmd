@@ -125,13 +125,16 @@ Next time you are struggling to make headway past the building, just remember th
 
 ### Behind the Simulation
 
-This project was born out of equal parts curiosity and a personal vendetta against the wind on San Martín Street. It is a deep dive into urban aerodynamics using the most iconic (and wind-swept) building in Bariloche as a case study.  
+This project was born out of equal parts curiosity and a personal vendetta against the wind on San Martín Street. It is a deep dive into urban aerodynamics using the most iconic building (for better or worse) in Bariloche as a case study. 
+
+::: {.footer-list-container}
 The workflow involved a complete CFD pipeline:
 
 * **Preprocessing:** Sourcing and cleaning urban CAD data and complex topography into analysis-ready STL files.
 * **Meshing:** Generating high-fidelity computational grids using `snappyHexMesh`.
 * **Solving:** Executing steady-state simulations within the **OpenFOAM** environment.
-* **Post-processing:** Utilizing **ParaView**, **Python** and specialized image manipulation for data visualization and result interpretation.
+* **Post-processing:** Utilizing **ParaView**, **Python**, and specialized image manipulation for results visualization.
+:::
 
 Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let's connect!
 

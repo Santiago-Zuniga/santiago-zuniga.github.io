@@ -77,3 +77,15 @@ footer {
     font-size: 0.9em;
     letter-spacing: 1px;
 }
+
+/* Fix for centered footer lists */
+.footer-list-container {
+    display: inline-block; /* Shrinks the container to the width of the text */
+    text-align: left;      /* Aligns text and bullets together */
+    margin: 20px auto;     /* Centers the whole block */
+}
+
+.footer-list-container ul {
+    list-style-position: outside;
+    padding-left: 20px;
+}
