@@ -8,13 +8,14 @@ website:
   title: "Santiago Zuniga"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
+      # - href: index.qmd
+      #   text: Home
       - href: projects/bariloche/index.qmd
         text: Bariloche Wind Project
 
 format:
   html:
     theme: cosmo
+    css: styles.css
     toc: true
     lightbox: true
