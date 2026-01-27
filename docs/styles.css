@@ -1,40 +1,56 @@
-/* Custom Technical Sepia Theme */
+/* --- Vintage Technical Report Theme --- */
 
-/* 1. Global Background */
+/* 1. Global Page Background (Solarized Light) */
 body {
     background-color: #fdf6e3 !important;
-    color: #586e75 !important;
+    color: #586e75 !important; /* Soft grey-green text */
+    line-height: 1.6;
 }
 
-/* 2. Fix the Navbar (Header) */
-#quarto-header .navbar {
-    background-color: #eee8d5 !important; /* Slightly darker sepia */
-    border-bottom: 1px solid #d3af37 !important;
-}
-
-/* 3. Darken the Main Title and Headings */
+/* 2. Darker, Grounded Headings */
 h1, .title, .quarto-title .title {
-    color: #073642 !important; /* Very dark slate blue/grey for high contrast */
-    font-weight: 700;
+    color: #073642 !important; /* Deep Slate - much more professional than blue */
+    font-weight: 800;
+    border-bottom: 2px solid #d3af37; /* Subtle gold underline for the main title */
+    padding-bottom: 10px;
 }
 
 h2, h3 {
-    color: #268bd2 !important; /* Muted blue for subheadings */
+    color: #2a4d53 !important; /* Muted teal/charcoal */
+    margin-top: 1.5em;
+    font-weight: 600;
 }
 
-/* 4. Fix Navbar Text Color */
+/* 3. The Navbar (Header) */
+#quarto-header .navbar {
+    background-color: #eee8d5 !important; /* Slightly darker "aged paper" color */
+    border-bottom: 1px solid #d3af37 !important; /* Gold divider */
+}
+
+/* Navbar Text & Brand */
 .navbar-brand, .nav-link {
-    color: #586e75 !important;
+    color: #073642 !important; /* Matching the dark headings */
+    font-weight: 500;
 }
 
 .nav-link:hover {
-    color: #b58900 !important; /* Gold hover effect */
+    color: #b58900 !important; /* Gold hover for interaction */
 }
 
-/* 5. Match the Slider Box to the Theme */
+/* 4. Table of Contents (Right Sidebar) */
+#TOC {
+    border-left: 1px solid #eee8d5;
+    color: #586e75;
+}
+
+#TOC .active {
+    color: #b58900 !important;
+    border-left: 2px solid #b58900;
+}
+
+/* 5. Results Slider Box */
 #velocity-explorer {
     background: #eee8d5 !important;
     border: 1px solid #d3af37;
-    padding: 25px;
-    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }

@@ -11,7 +11,7 @@ website:
       # - href: index.qmd
       #   text: Home
       - href: projects/bariloche/index.qmd
-        text: Bariloche Wind Project
+        text: Bariloche Urban Wind
 
 format:
   html:
