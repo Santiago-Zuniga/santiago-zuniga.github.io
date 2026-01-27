@@ -5,7 +5,7 @@ project:
     - "projects/bariloche/images/slices/*.jpeg"
 
 website:
-  title: "Santiago Zuniga"
+  #title: "Santiago Zuniga"
   navbar:
     left:
       # - href: index.qmd
