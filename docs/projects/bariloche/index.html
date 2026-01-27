@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-01-26">
 
-<title>Urban Wind San Carlos de Bariloche – Santiago Zuniga</title>
+<title>Urban Wind in San Carlos de Bariloche – Santiago Zuniga</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,6 +73,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -117,10 +146,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-bariloche-center-building" id="toc-the-bariloche-center-building" class="nav-link active" data-scroll-target="#the-bariloche-center-building">The Bariloche Center building</a></li>
   <li><a href="#simulation-details" id="toc-simulation-details" class="nav-link" data-scroll-target="#simulation-details">Simulation details</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
-  <li><a href="#test" id="toc-test" class="nav-link" data-scroll-target="#test">test</a>
-  <ul class="collapse">
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
-  </ul></li>
+  <li><a href="#some-remarks" id="toc-some-remarks" class="nav-link" data-scroll-target="#some-remarks">Some remarks</a></li>
   </ul>
 </nav>
     </div>
@@ -129,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Urban Wind San Carlos de Bariloche</h1>
+<h1 class="title">Urban Wind in San Carlos de Bariloche</h1>
 <p class="subtitle lead">Simulating urban wind around the tallest building in Bariloche using OpenFOAM</p>
 </div>
 
@@ -175,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="simulation-details" class="level2">
 <h2 class="anchored" data-anchor-id="simulation-details">Simulation details</h2>
 <p>To capture the complexity of the urban terrain, the topography of the ground and all 3D buildings were exported from <a href="https://www.openstreetmap.org/">OpenStreetMap</a> and processed in AutoCAD to generate the necessary STL surfaces. The computational mesh was then generated using OpenFOAM’s <code>snappyHexMesh</code> utility, with significant refinement applied near building surfaces to accurately capture flow separation and corner vortices. Two mesh levels were developed for this study: a baseline low-resolution mesh of approximately 800k cells for initial solver validation, and a production high-resolution mesh of 4M cells for the final analysis.</p>
-<p>The simulations were conducted using the <code>simpleFoam</code> solver for steady-state incompressible flow, utilizing the <code>k-epsilon</code> turbulence model. To represent the incoming wind, an <code>atmBoundaryLayerInletVelocity</code> condition was applied at the inlet. This condition modeled the atmospheric boundary layer by utilizing the average wind speed and direction, derived from <a href="https://globalwindatlas.info">Global Wind Atlas</a> data to establish a realistic velocity profile.</p>
+<p>The simulations were conducted using the <code>simpleFoam</code> solver for steady-state incompressible flow, utilizing the <span class="math inline">\(k-\epsilon\)</span> turbulence model. To represent the incoming wind, an <code>atmBoundaryLayerInletVelocity</code> condition was applied at the inlet. This condition modeled the atmospheric boundary layer by utilizing a design wind speed of 36 km/h and the most frequent direction (West-northwest). These parameters were derived from <a href="https://globalwindatlas.info">Global Wind Atlas</a> data to establish a realistic velocity profile that reflects the characteristic Patagonian winds of the region.</p>
 <!-- ::: {layout-ncol=1}
 ![Figure 2: View of the .](images/malla1.jpg){group="mesh"}
 ::: -->
@@ -202,22 +228,46 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
-<p>Click the images below to view the velocity magnitude contours at high resolution.</p>
+<p>Now, let’s examine some of the simulation results. Click the images below to view them in high resolution. First, we can observe the pressure distribution on the building walls alongside the streamlines of the wind approaching the <em>Bariloche Center</em> building. As expected, the western-facing facade bears the brunt of the wind force.</p>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/press1.jpg" class="lightbox" data-gallery="wind" title="Figure 1: Comparison of baseline wind flow vs.&nbsp;proposed tree barriers."><img src="images/press1.jpg" class="img-fluid figure-img" alt="Figure 1: Comparison of baseline wind flow vs.&nbsp;proposed tree barriers."></a></p>
-<figcaption>Figure 1: Comparison of baseline wind flow vs.&nbsp;proposed tree barriers.</figcaption>
+<p><a href="images/press1.jpg" class="lightbox" data-gallery="results" title="Figure 4: Pressure on building walls and streamlines of wind approaching the Bariloche Center building."><img src="images/press1.jpg" class="img-fluid figure-img" alt="Figure 4: Pressure on building walls and streamlines of wind approaching the Bariloche Center building."></a></p>
+<figcaption>Figure 4: Pressure on building walls and streamlines of wind approaching the <em>Bariloche Center</em> building.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="test" class="level1">
-<h1>test</h1>
+<p>To determine if these perturbations affect the conditions at street level, we can examine the <strong>wind magnitude at 1.5 m above ground level</strong>, roughly chest-height for most people, as shown in Figure 5. Indeed, there is a clear increase in wind speed immediately adjacent to the <em>Bariloche Center</em>, particularly along San Martin Street. Any local resident or tourist can confirm that this “wind tunnel” effect is very real.</p>
+<div class="quarto-layout-panel" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/top1.jpg" class="lightbox" data-gallery="results" title="Figure 5: Wind speed at 1.5 m from the ground."><img src="images/top1.jpg" class="img-fluid figure-img" alt="Figure 5: Wind speed at 1.5 m from the ground."></a></p>
+<figcaption>Figure 5: Wind speed at 1.5 m from the ground.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>To further illustrate this, Figure 6 shows a street-level view (using Street View imagery) overlaid with wind streamlines. This highlights another reality of this specific location: the wind on the sidewalk directly next to the <em>Bariloche Center</em> usually rises due to updrafts, while on the opposite sidewalk it descends from above.</p>
+<div class="quarto-layout-panel" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/stream2.jpeg" class="lightbox" data-gallery="results" title="Figure 6: Wind streamlines at street-level."><img src="images/stream2.jpeg" class="img-fluid figure-img" alt="Figure 6: Wind streamlines at street-level."></a></p>
+<figcaption>Figure 6: Wind streamlines at street-level.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Finally, by moving the slider below, the wind speed at different heights can be seen, revealing the extensive wake produced by the largest building in Bariloche.</p>
 <div id="velocity-explorer" style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px;">
   <img id="heightSliderImage" src="images/slices/anim.0000.jpeg" style="width:100%; max-width:900px; border-radius: 5px;">
   
@@ -259,12 +309,26 @@ ul.task-list li input[type="checkbox"] {
     })();
   </script>
 </div>
-<section id="discussion" class="level2">
-<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
-<p>The simulation suggests that a 15% increase in porous barriers leads to a 25% reduction in pedestrian-level wind speeds in the target zones.</p>
-
-
 </section>
+<section id="some-remarks" class="level2">
+<h2 class="anchored" data-anchor-id="some-remarks">Some remarks</h2>
+<p>So, what have we learned? While the simulations give us beautiful streamlines and precise pressure data (a bit of <em>Colorful Fluid Dynamics</em> never hurts), they essentially confirm what every local already knows: <strong>The <em>Bariloche Center</em> is a giant wind machine.</strong></p>
+<p>Whether you are a tourist trying to take a photo or a local just trying to get to the <em>parques</em> bus stop, the conclusions are clear:</p>
+<ul>
+<li>The simulation demonstrates that the building does more than just block the wind. In conjunction with the structures on the opposite side of the street, it funnels high-velocity air directly onto San Martin Street at pedestrian height.</li>
+<li>If you’ve ever felt like your hat was trying to fly to the moon while standing on the sidewalk, the vertical streamlines confirm that the building’s facade is actively trying to launch you.</li>
+</ul>
+<p>Next time you are struggling to make headway past the building, just remember that it is not just you. It is a fluid dynamics phenomenon that the people of Bariloche have had to endure for over 50 years.</p>
+<hr>
+<p>::: {.column-screen footer} ::: {.footer-content} ### Behind the Simulation</p>
+<p>This project was born out of equal parts curiosity and a personal vendetta against the wind on San Martín Street. It is a deep dive into urban aerodynamics using the most iconic (and wind-swept) building in Bariloche as a case study. This simulation captures the complex interaction between high-altitude Patagonian winds and the city’s unique architecture at pedestrian level.</p>
+<p>Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let’s connect!</p>
+<div class="footer-links">
+<p><a href="https://www.linkedin.com/in/zunigasantiago">LinkedIn</a> | <a href="mailto:santiago.zuniga@ib.edu.ar">Email Me</a></p>
+</div>
+<p>::: :::</p>
+
+
 </section>
 
 </main> <!-- /main -->

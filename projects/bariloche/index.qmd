@@ -1,5 +1,5 @@
 ---
-title: "Urban Wind San Carlos de Bariloche"
+title: "Urban Wind in San Carlos de Bariloche"
 subtitle: "Simulating urban wind around the tallest building in Bariloche using OpenFOAM"
 date: "2026-01-26"
 ---
@@ -20,8 +20,7 @@ This brings up the question: How much does the Bariloche Center building really 
 ## Simulation details
 To capture the complexity of the urban terrain, the topography of the ground and all 3D buildings were exported from [OpenStreetMap](https://www.openstreetmap.org/) and processed in AutoCAD to generate the necessary STL surfaces. The computational mesh was then generated using OpenFOAM’s `snappyHexMesh` utility, with significant refinement applied near building surfaces to accurately capture flow separation and corner vortices. Two mesh levels were developed for this study: a baseline low-resolution mesh of approximately 800k cells for initial solver validation, and a production high-resolution mesh of 4M cells for the final analysis.
 
-The simulations were conducted using the `simpleFoam` solver for steady-state incompressible flow, utilizing the `k-epsilon` turbulence model. To represent the incoming wind, an `atmBoundaryLayerInletVelocity` condition was applied at the inlet. This condition modeled the atmospheric boundary layer by utilizing the average wind speed and direction, derived from [Global Wind Atlas](https://globalwindatlas.info) data to establish a realistic velocity profile.
-
+The simulations were conducted using the `simpleFoam` solver for steady-state incompressible flow, utilizing the $k-\epsilon$ turbulence model. To represent the incoming wind, an `atmBoundaryLayerInletVelocity` condition was applied at the inlet. This condition modeled the atmospheric boundary layer by utilizing a design wind speed of 36 km/h and the most frequent direction (West-northwest). These parameters were derived from [Global Wind Atlas](https://globalwindatlas.info) data to establish a realistic velocity profile that reflects the characteristic Patagonian winds of the region.
 
 <!-- ::: {layout-ncol=1}
 ![Figure 2: View of the .](images/malla1.jpg){group="mesh"}
@@ -35,13 +34,27 @@ The simulations were conducted using the `simpleFoam` solver for steady-state in
 
 
 ## Results
-Click the images below to view the velocity magnitude contours at high resolution.
+Now, let’s examine some of the simulation results. Click the images below to view them in high resolution. First, we can observe the pressure distribution on the building walls alongside the streamlines of the wind approaching the *Bariloche Center* building. As expected, the western-facing facade bears the brunt of the wind force.
+
+
 
 ::: {layout-ncol=1}
-![Figure 1: Comparison of baseline wind flow vs. proposed tree barriers.](images/press1.jpg){group="wind"}
+![Figure 4: Pressure on building walls and streamlines of wind approaching the *Bariloche Center* building.](images/press1.jpg){group="results"}
 :::
 
-# test
+To determine if these perturbations affect the conditions at street level, we can examine the **wind magnitude at 1.5 m above ground level**, roughly chest-height for most people, as shown in Figure 5. Indeed, there is a clear increase in wind speed immediately adjacent to the *Bariloche Center*, particularly along San Martin Street. Any local resident or tourist can confirm that this "wind tunnel" effect is very real.
+
+::: {layout-ncol=1}
+![Figure 5: Wind speed at 1.5 m from the ground.](images/top1.jpg){group="results"}
+:::
+
+To further illustrate this, Figure 6 shows a street-level view (using Street View imagery) overlaid with wind streamlines. This highlights another reality of this specific location: the wind on the sidewalk directly next to the *Bariloche Center* usually rises due to updrafts, while on the opposite sidewalk it descends from above.
+
+::: {layout-ncol=1}
+![Figure 6: Wind streamlines at street-level.](images/stream2.jpeg){group="results"}
+:::
+
+Finally, by moving the slider below, the wind speed at different heights can be seen, revealing the extensive wake produced by the largest building in Bariloche.
 
 
 ```{=html}
@@ -89,5 +102,31 @@ Click the images below to view the velocity magnitude contours at high resolutio
 ```
 
 
-## Discussion
-The simulation suggests that a 15% increase in porous barriers leads to a 25% reduction in pedestrian-level wind speeds in the target zones.
+
+## Some remarks
+
+So, what have we learned? While the simulations give us beautiful streamlines and precise pressure data (a bit of *Colorful Fluid Dynamics* never hurts), they essentially confirm what every local already knows: **The *Bariloche Center* is a giant wind machine.**
+
+Whether you are a tourist trying to take a photo or a local just trying to get to the *parques* bus stop, the conclusions are clear:
+
+* The simulation demonstrates that the building does more than just block the wind. In conjunction with the structures on the opposite side of the street, it funnels high-velocity air directly onto San Martin Street at pedestrian height.
+* If you’ve ever felt like your hat was trying to fly to the moon while standing on the sidewalk, the vertical streamlines confirm that the building's facade is actively trying to launch you.
+
+Next time you are struggling to make headway past the building, just remember that it is not just you. It is a fluid dynamics phenomenon that the people of Bariloche have had to endure for over 50 years.
+
+
+---
+
+::: {.column-screen footer}
+::: {.footer-content}
+### Behind the Simulation
+
+This project was born out of equal parts curiosity and a personal vendetta against the wind on San Martín Street. It is a deep dive into urban aerodynamics using the most iconic (and wind-swept) building in Bariloche as a case study. This simulation captures the complex interaction between high-altitude Patagonian winds and the city's unique architecture at pedestrian level. 
+
+Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let's connect!
+
+::: {.footer-links}
+[LinkedIn](https://www.linkedin.com/in/zunigasantiago) | [Email Me](mailto:santiago.zuniga@ib.edu.ar)
+:::
+:::
+:::
