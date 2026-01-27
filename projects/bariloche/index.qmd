@@ -45,13 +45,14 @@ Now, let’s examine some of the simulation results. Click the images below to v
 To determine if these perturbations affect the conditions at street level, we can examine the **wind magnitude at 1.5 m above ground level**, roughly chest-height for most people, as shown in Figure 5. Indeed, there is a clear increase in wind speed immediately adjacent to the *Bariloche Center*, particularly along San Martin Street. Any local resident or tourist can confirm that this "wind tunnel" effect is very real.
 
 ::: {layout-ncol=1}
-![Figure 5: Wind speed at 1.5 m from the ground.](images/top1.jpg){group="results"}
+![Figure 5: Wind speed at 1.5 m above ground.](images/top1.jpg){group="results"}
 :::
 
-To further illustrate this, Figure 6 shows a street-level view (using Street View imagery) overlaid with wind streamlines. This highlights another reality of this specific location: the wind on the sidewalk directly next to the *Bariloche Center* usually rises due to updrafts, while on the opposite sidewalk it descends from above.
+To further illustrate this, Figure 6 shows a street-level view (using Street View imagery) overlaid with wind streamlines. This highlights another reality of this specific location: the wind on the sidewalk directly next to the *Bariloche Center* usually rises due to updrafts, while on the opposite sidewalk it descends from above. This can also be seen in Figure 7, where the vertical component of the wind, at 1.5 m above ground level, it's shown. 
 
 ::: {layout-ncol=1}
 ![Figure 6: Wind streamlines at street-level.](images/stream2.jpeg){group="results"}
+![Figure 7: Vertical component of wind at 1.5 m above ground.](images/stream2.jpeg){group="results"}
 :::
 
 Finally, by moving the slider below, the wind speed at different heights can be seen, revealing the extensive wake produced by the largest building in Bariloche.
