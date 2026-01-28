@@ -105,6 +105,14 @@ Finally, by moving the slider below, the wind speed at different heights can be 
 </div>
 ```
 
+### What if?
+As a fun experiment, I fulfilled a dream shared by many of us in Bariloche. I *redesigned* the Bariloche Center as a 3-story building instead of 10. The result? Wind speed at the pedestrian level dropped by 50%! I will abstain from mentioning the aesthetic advantages this would also bring.
+
+::: {layout-ncol=1}
+![Figure 8: What if the Barilcohe Center was a 3-story building?](images/comp.jpg){group="results"}
+:::
+
+
 
 
 ## Some remarks
