@@ -324,14 +324,27 @@ window.Quarto = {
 </div>
 <section id="what-if" class="level3">
 <h3 class="anchored" data-anchor-id="what-if">What if?</h3>
-<p>As a fun experiment, I fulfilled a dream shared by many of us in Bariloche. I <em>redesigned</em> the Bariloche Center as a 3-story building instead of 10. The result? Wind speed at the pedestrian level dropped by 50%! I will abstain from mentioning the aesthetic advantages this would also bring.</p>
+<p>Is there a way to mitigate these high-velocity zones? One strategy is to plant a row of tall trees (20 m high) along the sidewalk to act as a natural windbreak. To test this, I modeled the trees as a porous medium using the Darcy-Forchheimer model, applying parameters typical for the tree species found in the Bariloche area. You can see the trees zone computational mesh in the inset of Figure 8, along with the wind speed. The results are promising. By introducing these porous barriers, we can reduce wind speeds at the pedestrian level by up to 25%.</p>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/comp.jpg" class="lightbox" data-gallery="results" title="Figure 8: What if the Bariloche Center was a 3-story building?"><img src="images/comp.jpg" class="img-fluid figure-img" alt="Figure 8: What if the Bariloche Center was a 3-story building?"></a></p>
-<figcaption>Figure 8: What if the Bariloche Center was a 3-story building?</figcaption>
+<p><a href="images/comp_trees.jpg" class="lightbox" data-gallery="results" title="Figure 8: What if we plant a row of trees on the sidewalk?"><img src="images/comp_trees.jpg" class="img-fluid figure-img" alt="Figure 8: What if we plant a row of trees on the sidewalk?"></a></p>
+<figcaption>Figure 8: What if we plant a row of trees on the sidewalk?</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Finally, as a fun little experiment, I fulfilled a dream shared by many of us in Bariloche. I <em>redesigned</em> the Bariloche Center as a 3-story building instead of 10. The result? Wind speed at the pedestrian level dropped by 50%! I will abstain from mentioning the aesthetic advantages this would also bring.</p>
+<div class="quarto-layout-panel" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/comp.jpg" class="lightbox" data-gallery="results" title="Figure 9: What if the Bariloche Center was a 3-story building?"><img src="images/comp.jpg" class="img-fluid figure-img" alt="Figure 9: What if the Bariloche Center was a 3-story building?"></a></p>
+<figcaption>Figure 9: What if the Bariloche Center was a 3-story building?</figcaption>
 </figure>
 </div>
 </div>
@@ -347,7 +360,7 @@ window.Quarto = {
 <li>The simulation demonstrates that the building does more than just block the wind. In conjunction with the structures on the opposite side of the street, it funnels high-velocity air directly onto San Martin Street at pedestrian height.</li>
 <li>If you’ve ever felt like your hat was trying to fly to the moon while standing on the sidewalk, the vertical streamlines confirm that the building’s facade is actively trying to launch you.</li>
 </ul>
-<p>Next time you are struggling to make headway past the building, just remember that it is not just you. It is a fluid dynamics phenomenon that the people of Bariloche have had to endure for over 50 years.</p>
+<p>Next time you are struggling to make headway past the building, just remember that it is not just you. It is a fluid dynamics phenomenon that the people of Bariloche have had to endure for over 50 years. The results shown here remark the importance of CFD as a tool for urban planning and design, especially before the construction of large, disruptive buildings.</p>
 <hr>
 <section id="behind-the-simulation" class="level3 column-screen" style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;">
 <h3 class="anchored" data-anchor-id="behind-the-simulation">Behind the Simulation</h3>
@@ -357,7 +370,7 @@ window.Quarto = {
 <ul>
 <li><strong>Preprocessing:</strong> Sourcing and cleaning urban CAD data and complex topography into analysis-ready STL files.</li>
 <li><strong>Meshing:</strong> Generating high-fidelity computational grids using <code>snappyHexMesh</code>.</li>
-<li><strong>Solving:</strong> Executing steady-state simulations within the <strong>OpenFOAM</strong> environment.</li>
+<li><strong>Solving:</strong> Executing steady-state simulations within the <strong>OpenFOAM</strong> environment, with the addition of porous zones for vegetation modelling.</li>
 <li><strong>Post-processing:</strong> Utilizing <strong>ParaView</strong>, <strong>Python</strong>, and specialized image manipulation for results visualization.</li>
 <li><strong>Analysis:</strong> Interpreting local flow phenomena (such as updrafts) to quantify their impact on pedestrian comfort.</li>
 </ul>
