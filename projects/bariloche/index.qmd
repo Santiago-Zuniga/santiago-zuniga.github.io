@@ -110,7 +110,7 @@ Is there a way to mitigate these high-velocity zones? One strategy is to plant a
 To test this, I modeled the trees as a porous medium using the Darcy-Forchheimer model, applying parameters typical for the tree species found in the Bariloche area. You can see the trees zone computational mesh in the inset of Figure 8, along with the wind speed. The results are promising. By introducing these porous barriers, we can reduce wind speeds at the pedestrian level by up to 25%.
 
 ::: {layout-ncol=1}
-![Figure 8: What if we plant a row of trees on the sidewalk?](images/comp_trees.jpg){group="results"}
+![Figure 8: What if we plant a row of trees on the sidewalk?](images/comp_tree.jpg){group="results"}
 :::
 
 
