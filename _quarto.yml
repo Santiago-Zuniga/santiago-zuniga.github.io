@@ -12,6 +12,9 @@ website:
       #   text: Home
       - href: projects/bariloche/index.qmd
         text: Bariloche Urban Wind
+      - href: projects/cylinder/index.qmd
+        text: Vortex-induced vibrations
+
 
 format:
   html:
