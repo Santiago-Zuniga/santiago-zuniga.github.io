@@ -1,0 +1,50 @@
+---
+title: "Vortex-induced vibration of circular cylinder"
+subtitle: "Simulation of vortex-induced vibration of circular cylinder with two-degree-of-freedom in OpenFOAM"
+date: "2026-02-18"
+---
+
+## Periodic vortex shedding and the von Kármán vortex street
+
+When a fluid encounters a bluff body, such as a cylinder, it cannot follow the sharp curvature of the surface. This leads to boundary layer separation, where the flow detaches and forms two distinct shear layers. At low Reynolds numbers, these layers remain stable, but as the velocity increases, they begin to interact and roll up into discrete, concentrated vortices.
+
+Crucially, these vortices do not shed simultaneously. Instead, they detach in an alternating, periodic fashion, creating the Von Kármán vortex street: a staggered trail of swirling fluid that can persist for many diameters downstream. The frequency of this shedding ($f_s$) is predictable and is defined by the non-dimensional Strouhal Number (St):
+$f_s=\frac{St U}{D}$
+
+where U is the flow velocity and D is the cylinder diameter.
+
+::: {layout-ncol=1}
+![Figure 1: Vortex shedding behind Alexander Selkirk Island in the southern Pacific Ocean, from [NASA](https://science.nasa.gov/earth/earth-observatory/von-karman-vortices-2613/).](images/landsat_art_karman.jpg){group="none1"}
+:::
+
+While this is a fundamental problem in fluid mechanics, we encounter its effects daily. A common example is the high-pitched "whistling" or "humming" produced by a car antenna at highway speeds. This sound is the acoustic signature of vortex shedding; as the air flows past the thin rod, the alternating vortices create pressure fluctuations that vibrate the air. This happens because as a vortex is "born" on one side of the cylinder, it creates a local region of high-velocity, low-pressure fluid. This generates a net lift force that pulls the cylinder toward the vortex. As the next vortex sheds from the opposite side, the pressure drop shifts, and the lift force reverses direction.
+
+If the cylinder is rigid and fixed, it simply experiences these fluctuating loads as fatigue or noise. However, if the structure is elastic or mounted on springs (such as a car antenna, a bridge cable, or an offshore riser), this periodic forcing begins to move the structure.
+
+
+When the shedding frequency ($f_s$) nears the natural frequency of the structure ($f_n$), the fluid and the structure begin to synchronize. The shedding frequency can actually shift to match the structural frequency, leading to a state called lock-in. The result is Vortex-Induced Vibrations (VIV): high-amplitude, self-sustaining oscillations that can lead to rapid structural failure. 
+
+
+---
+
+::: {.column-screen style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;"}
+
+<!-- ### Behind the Simulation
+
+This project was born out of equal parts curiosity and a personal vendetta against the wind on San Martín Street. It is a deep dive into urban aerodynamics using the most iconic building (for better or worse) in Bariloche as a case study. 
+
+::: {.footer-list-container}
+The workflow involved a complete CFD pipeline:
+
+* **Preprocessing:** Sourcing and cleaning urban CAD data and complex topography into analysis-ready STL files.
+* **Meshing:** Generating high-fidelity computational grids using `snappyHexMesh`.
+* **Solving:** Executing steady-state simulations within the **OpenFOAM** environment, with the addition of porous zones for vegetation modelling.
+* **Post-processing:** Utilizing **ParaView**, **Python**, and specialized image manipulation for results visualization.
+* **Analysis:** Interpreting local flow phenomena (such as updrafts) to quantify their impact on pedestrian comfort.
+:::
+ -->
+Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let's connect!
+
+[LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | [Email Me](mailto:santiago.zuniga@ib.edu.ar)
+
+:::
