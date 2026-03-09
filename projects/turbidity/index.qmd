@@ -98,6 +98,7 @@ This project was a deep dive into the fundamental physics of buoyancy-driven flo
 
 ::: {.footer-list-container}
 The workflow involved a complete CFD pipeline:
+
 * **Preprocessing:** Formulating complex open boundary conditions and generating synthetic turbulent inlets to sustain realistic flow physics.
 * **Solving:** Executing massive Direct Numerical Simulations (DNS) and Large-Eddy Simulations (LES) across thousands of CPU cores and GPU clusters.
 * **Analysis:** Processing terabytes of velocity and concentration fields to extract momentum balances, turbulent kinetic energy budgets, and structural insights.
@@ -109,3 +110,5 @@ Think this is cool? I am always looking for interesting fluid dynamics problems 
 [LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | [Email Me](mailto:santiago.zuniga@ib.edu.ar)
 
 :::
+
+
