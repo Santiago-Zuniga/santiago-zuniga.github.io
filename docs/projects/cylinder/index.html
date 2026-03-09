@@ -123,8 +123,8 @@ window.Quarto = {
 <span class="menu-text">Bariloche Urban Wind</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../projects/cylinder/index.html" aria-current="page"> 
-<span class="menu-text">Vortex-induced vibrations</span></a>
+    <a class="nav-link" href="../../projects/turbidity/index.html"> 
+<span class="menu-text">Multiscale CFD applied to buoyancy-driven flows</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -143,6 +143,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#periodic-vortex-shedding-and-the-von-kármán-vortex-street" id="toc-periodic-vortex-shedding-and-the-von-kármán-vortex-street" class="nav-link active" data-scroll-target="#periodic-vortex-shedding-and-the-von-kármán-vortex-street">Periodic vortex shedding and the von Kármán vortex street</a></li>
+  <li><a href="#vortex-induced-vibrations-on-a" id="toc-vortex-induced-vibrations-on-a" class="nav-link" data-scroll-target="#vortex-induced-vibrations-on-a">Vortex induced vibrations on a</a></li>
   </ul>
 </nav>
     </div>
@@ -175,7 +176,7 @@ window.Quarto = {
 </header>
 
 
-<section id="periodic-vortex-shedding-and-the-von-kármán-vortex-street" class="level2 page-columns page-full">
+<section id="periodic-vortex-shedding-and-the-von-kármán-vortex-street" class="level2">
 <h2 class="anchored" data-anchor-id="periodic-vortex-shedding-and-the-von-kármán-vortex-street">Periodic vortex shedding and the von Kármán vortex street</h2>
 <p>When a fluid encounters a bluff body, such as a cylinder, it cannot follow the sharp curvature of the surface. This leads to boundary layer separation, where the flow detaches and forms two distinct shear layers. At low Reynolds numbers, these layers remain stable, but as the velocity increases, they begin to interact and roll up into discrete, concentrated vortices.</p>
 <p>Crucially, these vortices do not shed simultaneously. Instead, they detach in an alternating, periodic fashion, creating the Von Kármán vortex street: a staggered trail of swirling fluid that can persist for many diameters downstream. The frequency of this shedding (<span class="math inline">\(f_s\)</span>) is predictable and is defined by the non-dimensional Strouhal Number (St): <span class="math inline">\(f_s=\frac{St U}{D}\)</span></p>
@@ -195,6 +196,10 @@ window.Quarto = {
 <p>While this is a fundamental problem in fluid mechanics, we encounter its effects daily. A common example is the high-pitched “whistling” or “humming” produced by a car antenna at highway speeds. This sound is the acoustic signature of vortex shedding; as the air flows past the thin rod, the alternating vortices create pressure fluctuations that vibrate the air. This happens because as a vortex is “born” on one side of the cylinder, it creates a local region of high-velocity, low-pressure fluid. This generates a net lift force that pulls the cylinder toward the vortex. As the next vortex sheds from the opposite side, the pressure drop shifts, and the lift force reverses direction.</p>
 <p>If the cylinder is rigid and fixed, it simply experiences these fluctuating loads as fatigue or noise. However, if the structure is elastic or mounted on springs (such as a car antenna, a bridge cable, or an offshore riser), this periodic forcing begins to move the structure.</p>
 <p>When the shedding frequency (<span class="math inline">\(f_s\)</span>) nears the natural frequency of the structure (<span class="math inline">\(f_n\)</span>), the fluid and the structure begin to synchronize. The shedding frequency can actually shift to match the structural frequency, leading to a state called lock-in. The result is Vortex-Induced Vibrations (VIV): high-amplitude, self-sustaining oscillations that can lead to rapid structural failure.</p>
+</section>
+<section id="vortex-induced-vibrations-on-a" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="vortex-induced-vibrations-on-a">Vortex induced vibrations on a</h2>
+<p>While this</p>
 <hr>
 <div class="column-screen" style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;">
 <!-- ### Behind the Simulation

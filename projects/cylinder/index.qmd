@@ -24,6 +24,9 @@ If the cylinder is rigid and fixed, it simply experiences these fluctuating load
 
 When the shedding frequency ($f_s$) nears the natural frequency of the structure ($f_n$), the fluid and the structure begin to synchronize. The shedding frequency can actually shift to match the structural frequency, leading to a state called lock-in. The result is Vortex-Induced Vibrations (VIV): high-amplitude, self-sustaining oscillations that can lead to rapid structural failure. 
 
+## Vortex induced vibrations on a 
+
+While this 
 
 ---
 
