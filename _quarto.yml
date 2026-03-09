@@ -8,12 +8,12 @@ website:
   #title: "Santiago Zuniga"
   navbar:
     left:
-      # - href: index.qmd
-      #   text: Home
-      - href: projects/bariloche/index.qmd
-        text: Bariloche Urban Wind
+      - href: index.qmd
+        text: Home
       - href: projects/turbidity/index.qmd
         text: Multiscale CFD applied to buoyancy-driven flows
+      - href: projects/bariloche/index.qmd
+        text: Bariloche Urban Wind
       # - href: projects/cylinder/index.qmd
       #   text: Vortex-induced vibrations
 
