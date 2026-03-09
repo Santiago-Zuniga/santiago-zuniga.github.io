@@ -12,8 +12,8 @@ website:
     logo: favicon.svg
     title: "Santiago Zúñiga"
     left:
-      - href: index.qmd
-        text: Home
+      # - href: index.qmd
+      #   text: Home
       - href: projects/turbidity/index.qmd
         text: Multiscale CFD applied to buoyancy-driven flows
       - href: projects/bariloche/index.qmd
