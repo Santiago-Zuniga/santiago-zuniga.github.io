@@ -16,7 +16,7 @@ When that density difference is caused by suspended sediment, the phenomenon is 
 Because these flows occur in hazardous or inaccessible environments, measuring them in the field is incredibly difficult. This brings up an important challenge: how do we understand and predict their complex, destructive dynamics? We answer that by using Computational Fluid Dynamics (CFD) to recreate these extreme environments virtually.
 
 ::: {layout-ncol=1}
-![Figure 1: Experiments of wall-hugging buoyancy-driven flows across increasing wall slopes. See figure 1.2 in the manuscript for references.](images/currents-plumes.png){group="none1"}
+![Figure 1: Experiments of wall-hugging buoyancy-driven flows across increasing wall slopes. See figure 1.2 in the manuscript for references.](images/current-plumes.png){group="none1"}
 :::
 
 
