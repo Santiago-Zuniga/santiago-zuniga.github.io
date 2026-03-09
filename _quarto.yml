@@ -3,10 +3,14 @@ project:
   output-dir: docs
   resources:
     - "projects/bariloche/images/slices/*.jpeg"
+  
 
 website:
-  #title: "Santiago Zuniga"
+  title: "Santiago Zuniga"
+  favicon: favicon.svg
   navbar:
+    logo: favicon.svg
+    title: "Santiago Zúñiga"
     left:
       - href: index.qmd
         text: Home
