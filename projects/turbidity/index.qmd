@@ -90,8 +90,7 @@ The results shown here remark the importance of advanced computational methods f
 
 ---
 
-
-
+::: {.column-screen style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;"}
 
 ### Behind the Simulation
 
@@ -104,4 +103,8 @@ The workflow involved a complete multiscale pipeline:
 * **Analysis:** Processing terabytes of velocity and concentration fields to extract momentum balances, turbulent kinetic energy budgets, and structural insights.
 * **Machine Learning:** Developing a robust XGBoost regression ensemble to upgrade traditional depth-averaged equations, complete with uncertainty quantification.
 
-Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let’s connect!
+Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let's connect!
+
+[LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | [Email Me](mailto:santiago.zuniga@ib.edu.ar)
+
+:::
