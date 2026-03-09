@@ -98,10 +98,12 @@ This project was a deep dive into the fundamental physics of buoyancy-driven flo
 
 The workflow involved a complete multiscale pipeline:
 
+::: {style="max-width: 800px; margin: 0 auto; text-align: left;"}
 * **Preprocessing:** Formulating complex open boundary conditions and generating synthetic turbulent inlets to sustain realistic flow physics.
 * **Solving:** Executing massive Direct Numerical Simulations (DNS) and Large-Eddy Simulations (LES) across thousands of CPU cores and GPU clusters.
 * **Analysis:** Processing terabytes of velocity and concentration fields to extract momentum balances, turbulent kinetic energy budgets, and structural insights.
 * **Machine Learning:** Developing a robust XGBoost regression ensemble to upgrade traditional depth-averaged equations, complete with uncertainty quantification.
+:::
 
 Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let's connect!
 
