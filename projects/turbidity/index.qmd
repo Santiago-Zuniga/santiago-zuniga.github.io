@@ -94,11 +94,10 @@ The results shown here remark the importance of advanced computational methods f
 
 ### Behind the Simulation
 
-This project was a deep dive into the fundamental physics of buoyancy-driven flows, pushing the limits of what we can resolve numerically. It combined traditional fluid mechanics with data science to bridge the gap between microscopic turbulence and macroscopic engineering models.
+This project was a deep dive into the fundamental physics of buoyancy-driven flows, pushing the limits of what we can resolve numerically. It combined traditional fluid mechanics with data science to bridge the gap between microscopic turbulence and macroscopic engineering models. 
 
-The workflow involved a complete multiscale pipeline:
-
-::: {style="max-width: 800px; margin: 0 auto; text-align: left;"}
+::: {.footer-list-container}
+The workflow involved a complete CFD pipeline:
 * **Preprocessing:** Formulating complex open boundary conditions and generating synthetic turbulent inlets to sustain realistic flow physics.
 * **Solving:** Executing massive Direct Numerical Simulations (DNS) and Large-Eddy Simulations (LES) across thousands of CPU cores and GPU clusters.
 * **Analysis:** Processing terabytes of velocity and concentration fields to extract momentum balances, turbulent kinetic energy budgets, and structural insights.
