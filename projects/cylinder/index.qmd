@@ -74,6 +74,6 @@ Jauvtis, N., & Williamson, C. H. K. (2003). The effect of two degrees of freedom
 
 Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let's connect!
 
-[LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | [Email Me](mailto:santiago.zuniga@ib.edu.ar)
+<span class="iconify" data-icon="tabler:brand-linkedin"></span>[LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | <span class="iconify" data-icon="tabler:mail"></span>[Email Me](mailto:santiago.zuniga@ib.edu.ar)
 
 :::
