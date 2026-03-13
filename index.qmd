@@ -6,4 +6,4 @@ Beyond the computer screen, I also enjoy hands-on experimental work. I have prac
 
 Feel free to explore the links above to see my latest projects! If this interests you, let's connect!
 
-[LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | [Email Me](mailto:santiago.zuniga@ib.edu.ar)
+{{< iconify tabler brand-linkedin >}} [LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | {{< iconify tabler mail >}} [Email Me](mailto:santiago.zuniga@ib.edu.ar)
