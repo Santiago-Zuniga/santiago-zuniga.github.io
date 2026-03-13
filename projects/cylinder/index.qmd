@@ -53,9 +53,11 @@ To handle the domain deformation, two distinct methods were evaluated, with the 
 
 
 ::: {#fig-vortex-sim}
-
-{{< video images/lci_4.mp4 width="100%" height="auto" autoplay="true" loop="true" muted="true" playsinline="true" >}}
-
+```{=html}
+<video width="100%" height="auto" autoplay loop muted playsinline>
+  <source src="images/lci_4.mp4" type="video/mp4">
+</video>
+```
 Volumetric representation of the vortex shedding using the $\lambda_{ci}$ criterion, for an LES simulation at $U_r=6$.
 
 :::
@@ -72,6 +74,6 @@ Jauvtis, N., & Williamson, C. H. K. (2003). The effect of two degrees of freedom
 
 Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let's connect!
 
-<span class="iconify" data-icon="tabler:brand-linkedin"></span>[LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | <span class="iconify" data-icon="tabler:mail"></span>[Email Me](mailto:santiago.zuniga@ib.edu.ar)
+[LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | [Email Me](mailto:santiago.zuniga@ib.edu.ar)
 
 :::

@@ -43,8 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="../../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -241,7 +239,9 @@ window.Quarto = {
 <div id="fig-vortex-sim" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vortex-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" width="100%" height="auto" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="images/lci_4.mp4"></video></div>
+<video width="100%" height="auto" autoplay="" loop="" muted="" playsinline="">
+  <source src="images/lci_4.mp4" type="video/mp4">
+</video>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vortex-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Volumetric representation of the vortex shedding using the <span class="math inline">\(\lambda_{ci}\)</span> criterion, for an LES simulation at <span class="math inline">\(U_r=6\)</span>.
@@ -258,7 +258,7 @@ Figure&nbsp;1: Volumetric representation of the vortex shedding using the <span 
 <hr>
 <div class="column-screen" style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;">
 <p>Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let’s connect!</p>
-<p><span class="iconify" data-icon="tabler:brand-linkedin"></span><a href="https://www.linkedin.com/in/zunigasantiago/">LinkedIn</a> | <span class="iconify" data-icon="tabler:mail"></span><a href="mailto:santiago.zuniga@ib.edu.ar">Email Me</a></p>
+<p><a href="https://www.linkedin.com/in/zunigasantiago/">LinkedIn</a> | <a href="mailto:santiago.zuniga@ib.edu.ar">Email Me</a></p>
 </div>
 
 
@@ -666,7 +666,6 @@ Figure&nbsp;1: Volumetric representation of the vortex shedding using the <span 
   });
   </script>
 </div> <!-- /content -->
-<script>videojs(video_shortcode_videojs_video1);</script>
 <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
