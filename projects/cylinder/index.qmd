@@ -46,10 +46,10 @@ Numerical simulations were performed using **OpenFOAM**, with computational doma
 
 The structural response was modeled using a **six-degree-of-freedom (6-DoF)** rigid-body solver integrated within the `dynamicMesh` framework. The cylinder's motion is governed by a **Newmark-beta** ODE solver, which accounts for the hydrodynamic forces, structural mass, and damping. A custom restraint library was developed to implement a **nonlinear coupled spring model**. This allowed for the investigation of geometrical nonlinearities in the structural restoration forces.
 
-To handle the domain deformation, two distinct methods were evaluated:
+To handle the domain deformation, two distinct methods were evaluated, with the **ALE** approach serving as the primary baseline for the study:
 
-1. **Arbitrary Lagrangian-Eulerian (ALE)**: Utilizing the `dynamicMotionSolverFvMesh` with a distance-based displacement Laplacian to morph the mesh around the moving cylinder.
-2. **Overset (Chimera) Mesh**: Utilizing a background mesh and a translated foreground component mesh to maintain high cell quality regardless of the oscillation amplitude.
+1. **Arbitrary Lagrangian-Eulerian (ALE)**: Utilizing the `dynamicMotionSolverFvMesh` class with a distance-based displacement Laplacian to morph the mesh around the moving cylinder.
+2. **Overset (Chimera) Mesh**: Utilizing the `dynamicOversetFvMesh` class with a background mesh and a translated foreground component mesh to maintain high cell quality regardless of the oscillation amplitude. This method was used to verify the consistency of the overset solver against the ALE results.
 
 
 ::: {#fig-vortex-sim}
@@ -59,12 +59,11 @@ To handle the domain deformation, two distinct methods were evaluated:
 Volumetric representation of the vortex shedding using the $\lambda_{ci}$ criterion, for an LES simulation at $U_r=6$.
 :::
 
-
-
 ---
 
 ## References
-* Jauvtis, N., & Williamson, C. H. K. (2003). The effect of two degrees of freedom on vortex-induced vibration at low mass and damping. Journal of Fluid Mechanics, 480, 37.321.
+
+* Jauvtis, N., & Williamson, C. H. K. (2003). The effect of two degrees of freedom on vortex-induced vibration at low mass and damping. Journal of Fluid Mechanics.
 
 
 ---
@@ -88,6 +87,6 @@ The workflow involved a complete CFD pipeline:
  -->
 Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let's connect!
 
-[LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | [Email Me](mailto:santiago.zuniga@ib.edu.ar)
+<span class="iconify" data-icon="tabler:brand-linkedin"></span>[LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | <span class="iconify" data-icon="tabler:mail"></span>[Email Me](mailto:santiago.zuniga@ib.edu.ar)
 
 :::

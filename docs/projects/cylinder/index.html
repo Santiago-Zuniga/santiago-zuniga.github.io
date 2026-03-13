@@ -230,10 +230,10 @@ window.Quarto = {
 <section id="fluid-structure-coupling-and-mesh-motion" class="level4 page-columns page-full">
 <h4 class="anchored">Fluid-Structure Coupling and Mesh Motion</h4>
 <p>The structural response was modeled using a <strong>six-degree-of-freedom (6-DoF)</strong> rigid-body solver integrated within the <code>dynamicMesh</code> framework. The cylinder’s motion is governed by a <strong>Newmark-beta</strong> ODE solver, which accounts for the hydrodynamic forces, structural mass, and damping. A custom restraint library was developed to implement a <strong>nonlinear coupled spring model</strong>. This allowed for the investigation of geometrical nonlinearities in the structural restoration forces.</p>
-<p>To handle the domain deformation, two distinct methods were evaluated:</p>
+<p>To handle the domain deformation, two distinct methods were evaluated, with the <strong>ALE</strong> approach serving as the primary baseline for the study:</p>
 <ol type="1">
-<li><strong>Arbitrary Lagrangian-Eulerian (ALE)</strong>: Utilizing the <code>dynamicMotionSolverFvMesh</code> with a distance-based displacement Laplacian to morph the mesh around the moving cylinder.</li>
-<li><strong>Overset (Chimera) Mesh</strong>: Utilizing a background mesh and a translated foreground component mesh to maintain high cell quality regardless of the oscillation amplitude.</li>
+<li><strong>Arbitrary Lagrangian-Eulerian (ALE)</strong>: Utilizing the <code>dynamicMotionSolverFvMesh</code> class with a distance-based displacement Laplacian to morph the mesh around the moving cylinder.</li>
+<li><strong>Overset (Chimera) Mesh</strong>: Utilizing the <code>dynamicOversetFvMesh</code> class with a background mesh and a translated foreground component mesh to maintain high cell quality regardless of the oscillation amplitude. This method was used to verify the consistency of the overset solver against the ALE results.</li>
 </ol>
 <div id="fig-vortex-sim" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
@@ -247,7 +247,7 @@ window.Quarto = {
 <section id="references" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <ul>
-<li>Jauvtis, N., &amp; Williamson, C. H. K. (2003). The effect of two degrees of freedom on vortex-induced vibration at low mass and damping. Journal of Fluid Mechanics, 480, 37.321.</li>
+<li>Jauvtis, N., &amp; Williamson, C. H. K. (2003). The effect of two degrees of freedom on vortex-induced vibration at low mass and damping. Journal of Fluid Mechanics.</li>
 </ul>
 <hr>
 <div class="column-screen" style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;">
@@ -266,7 +266,7 @@ The workflow involved a complete CFD pipeline:
 :::
  -->
 <p>Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let’s connect!</p>
-<p><a href="https://www.linkedin.com/in/zunigasantiago/">LinkedIn</a> | <a href="mailto:santiago.zuniga@ib.edu.ar">Email Me</a></p>
+<p><span class="iconify" data-icon="tabler:brand-linkedin"></span><a href="https://www.linkedin.com/in/zunigasantiago/">LinkedIn</a> | <span class="iconify" data-icon="tabler:mail"></span><a href="mailto:santiago.zuniga@ib.edu.ar">Email Me</a></p>
 </div>
 
 
