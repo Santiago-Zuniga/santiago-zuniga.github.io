@@ -43,6 +43,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -157,6 +159,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#numerical-modeling" id="toc-numerical-modeling" class="nav-link" data-scroll-target="#numerical-modeling">Numerical Modeling</a></li>
   </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -209,7 +212,7 @@ window.Quarto = {
 <p>If the cylinder is rigid and fixed, it simply experiences these fluctuating loads as fatigue or noise. However, if the structure is elastic or mounted on springs (such as a car antenna, a bridge cable, or an offshore riser), this periodic forcing begins to move the structure.</p>
 <p>When the shedding frequency (<span class="math inline">\(f_s\)</span>) nears the natural frequency of the structure (<span class="math inline">\(f_n\)</span>), the fluid and the structure begin to synchronize. The shedding frequency can actually shift to match the structural frequency, leading to a state called <strong>lock-in</strong>. The result is Vortex-Induced Vibrations (VIV): high-amplitude, self-sustaining oscillations that can lead to rapid structural failure. The transition from a static cylinder to a vibrating one marks the shift into the domain of Fluid-Structure Interaction (FSI). In this regime, the problem is no longer “one-way” (the fluid moving the cylinder), but a tightly coupled “two-way” feedback loop. As the cylinder moves, it alters the boundary conditions of the flow field, which in turn modifies the timing and strength of the vortex shedding.</p>
 </section>
-<section id="vortex-induced-vibrations-on-a-cylinder-with-two-degrees-of-freedom" class="level2 page-columns page-full">
+<section id="vortex-induced-vibrations-on-a-cylinder-with-two-degrees-of-freedom" class="level2">
 <h2 class="anchored" data-anchor-id="vortex-induced-vibrations-on-a-cylinder-with-two-degrees-of-freedom">Vortex induced vibrations on a cylinder with two-degrees of freedom</h2>
 <p>To investigate this phenomenon, we propose a simplified system where a cylinder moves elastically in the <span class="math inline">\(x\)</span>-<span class="math inline">\(y\)</span> plane. For solver validation, this study replicates the experimental results of Jauvtis and Williamson (2003) for a low mass ratio (<span class="math inline">\(m^* = 2.6\)</span>).</p>
 <p><strong>Simulation Parameters:</strong></p>
@@ -220,30 +223,35 @@ window.Quarto = {
 <li><strong>Reduced Velocity Range (<span class="math inline">\(U_r = \frac{U}{f_n D}\)</span>):</strong> 2 to 12</li>
 </ul>
 <p>While we expect maximum vibration amplitude near <span class="math inline">\(U_r = 5\)</span> (where <span class="math inline">\(f_n \approx f_s\)</span>), the physical reality is more complex. Despite the apparent simplicity of the setup, the system is physically rich, exhibiting purely fluid-mechanical hysteresis and distinct response branches that challenge numerical accuracy.</p>
-<section id="numerical-modeling" class="level3 page-columns page-full">
-<h3 class="anchored">Numerical Modeling</h3>
+<section id="numerical-modeling" class="level3">
+<h3 class="anchored" data-anchor-id="numerical-modeling">Numerical Modeling</h3>
 <p>Numerical simulations were performed using <strong>OpenFOAM</strong>, with computational domains generated as O-grids using the <code>blockMesh</code> utility. To assess the influence of turbulence modeling and three-dimensionality on VIV prediction, two approaches were compared:</p>
 <ul>
 <li><strong>2D RANS</strong>: Utilizing the <span class="math inline">\(k\)</span>-<span class="math inline">\(\omega\)</span> SST model.</li>
 <li><strong>3D LES</strong>: Utilizing a <span class="math inline">\(k\)</span>-equation sub-grid scale model or WALE (Wall-Adapting Local Eddy-viscosity) model.</li>
 </ul>
-<section id="fluid-structure-coupling-and-mesh-motion" class="level4 page-columns page-full">
-<h4 class="anchored">Fluid-Structure Coupling and Mesh Motion</h4>
+<section id="fluid-structure-coupling-and-mesh-motion" class="level4">
+<h4 class="anchored" data-anchor-id="fluid-structure-coupling-and-mesh-motion">Fluid-Structure Coupling and Mesh Motion</h4>
 <p>The structural response was modeled using a <strong>six-degree-of-freedom (6-DoF)</strong> rigid-body solver integrated within the <code>dynamicMesh</code> framework. The cylinder’s motion is governed by a <strong>Newmark-beta</strong> ODE solver, which accounts for the hydrodynamic forces, structural mass, and damping. A custom restraint library was developed to implement a <strong>nonlinear coupled spring model</strong>. This allowed for the investigation of geometrical nonlinearities in the structural restoration forces.</p>
 <p>To handle the domain deformation, two distinct methods were evaluated, with the <strong>ALE</strong> approach serving as the primary baseline for the study:</p>
 <ol type="1">
 <li><strong>Arbitrary Lagrangian-Eulerian (ALE)</strong>: Utilizing the <code>dynamicMotionSolverFvMesh</code> class with a distance-based displacement Laplacian to morph the mesh around the moving cylinder.</li>
 <li><strong>Overset (Chimera) Mesh</strong>: Utilizing the <code>dynamicOversetFvMesh</code> class with a background mesh and a translated foreground component mesh to maintain high cell quality regardless of the oscillation amplitude. This method was used to verify the consistency of the overset solver against the ALE results.</li>
 </ol>
-<div id="fig-vortex-sim" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-vortex-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<video width="100%" height="auto" autoplay="" loop="" muted="" playsinline="">
-<source src="images/lci_4.mp4" type="video/mp4">
-</video>
-<p>Volumetric representation of the vortex shedding using the <span class="math inline">\(\lambda_{ci}\)</span> criterion, for an LES simulation at <span class="math inline">\(U_r=6\)</span>.</p>
-<p>:::</p>
+<div id="fig-vortex-sim" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vortex-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" width="100%" height="auto" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="images/lci_4.mp4"></video></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vortex-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Volumetric representation of the vortex shedding using the <span class="math inline">\(\lambda_{ci}\)</span> criterion, for an LES simulation at <span class="math inline">\(U_r=6\)</span>.
+</figcaption>
+</figure>
+</div>
 <hr>
+</section>
+</section>
+</section>
 <section id="references" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <p>Jauvtis, N., &amp; Williamson, C. H. K. (2003). The effect of two degrees of freedom on vortex-induced vibration at low mass and damping. <em>Journal of Fluid Mechanics</em>, 480, 37–63.</p>
@@ -254,15 +262,6 @@ window.Quarto = {
 </div>
 
 
-</section>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-vortex-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
-</figcaption>
-</figure>
-</div>
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -667,6 +666,7 @@ Figure&nbsp;1
   });
   </script>
 </div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
 <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;

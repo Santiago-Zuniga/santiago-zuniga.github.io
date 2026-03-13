@@ -54,9 +54,7 @@ To handle the domain deformation, two distinct methods were evaluated, with the 
 
 ::: {#fig-vortex-sim}
 
-<video width="100%" height="auto" autoplay loop muted playsinline>
-  <source src="images/lci_4.mp4" type="video/mp4">
-</video>
+{{< video images/lci_4.mp4 width="100%" height="auto" autoplay="true" loop="true" muted="true" playsinline="true" >}}
 
 Volumetric representation of the vortex shedding using the $\lambda_{ci}$ criterion, for an LES simulation at $U_r=6$.
 
