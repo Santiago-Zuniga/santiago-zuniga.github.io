@@ -153,7 +153,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#periodic-vortex-shedding-and-the-von-kármán-vortex-street" id="toc-periodic-vortex-shedding-and-the-von-kármán-vortex-street" class="nav-link active" data-scroll-target="#periodic-vortex-shedding-and-the-von-kármán-vortex-street">Periodic vortex shedding and the von Kármán vortex street</a></li>
-  <li><a href="#vortex-induced-vibrations-on-a" id="toc-vortex-induced-vibrations-on-a" class="nav-link" data-scroll-target="#vortex-induced-vibrations-on-a">Vortex induced vibrations on a</a></li>
+  <li><a href="#vortex-induced-vibrations-on-a-cylinder-with-two-degrees-of-freedom" id="toc-vortex-induced-vibrations-on-a-cylinder-with-two-degrees-of-freedom" class="nav-link" data-scroll-target="#vortex-induced-vibrations-on-a-cylinder-with-two-degrees-of-freedom">Vortex induced vibrations on a cylinder with two-degrees of freedom</a>
+  <ul class="collapse">
+  <li><a href="#numerical-modeling" id="toc-numerical-modeling" class="nav-link" data-scroll-target="#numerical-modeling">Numerical Modeling</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -189,8 +192,7 @@ window.Quarto = {
 <section id="periodic-vortex-shedding-and-the-von-kármán-vortex-street" class="level2">
 <h2 class="anchored" data-anchor-id="periodic-vortex-shedding-and-the-von-kármán-vortex-street">Periodic vortex shedding and the von Kármán vortex street</h2>
 <p>When a fluid encounters a bluff body, such as a cylinder, it cannot follow the sharp curvature of the surface. This leads to boundary layer separation, where the flow detaches and forms two distinct shear layers. At low Reynolds numbers, these layers remain stable, but as the velocity increases, they begin to interact and roll up into discrete, concentrated vortices.</p>
-<p>Crucially, these vortices do not shed simultaneously. Instead, they detach in an alternating, periodic fashion, creating the Von Kármán vortex street: a staggered trail of swirling fluid that can persist for many diameters downstream. The frequency of this shedding (<span class="math inline">\(f_s\)</span>) is predictable and is defined by the non-dimensional Strouhal Number (St): <span class="math inline">\(f_s=\frac{St U}{D}\)</span></p>
-<p>where U is the flow velocity and D is the cylinder diameter.</p>
+<p>Crucially, these vortices do not shed simultaneously. Instead, they detach in an alternating, periodic fashion, creating the <strong>von Kármán</strong> vortex street: a staggered trail of swirling fluid that can persist for many diameters downstream. The frequency of this shedding (<span class="math inline">\(f_s\)</span>) is predictable and is defined by the nondimensional Strouhal Number (St): <span class="math inline">\(f_s=\frac{St \cdot U}{D}\)</span> where <span class="math inline">\(U\)</span> is the flow velocity and <span class="math inline">\(D\)</span> is the cylinder diameter.</p>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
@@ -203,13 +205,50 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>While this is a fundamental problem in fluid mechanics, we encounter its effects daily. A common example is the high-pitched “whistling” or “humming” produced by a car antenna at highway speeds. This sound is the acoustic signature of vortex shedding; as the air flows past the thin rod, the alternating vortices create pressure fluctuations that vibrate the air. This happens because as a vortex is “born” on one side of the cylinder, it creates a local region of high-velocity, low-pressure fluid. This generates a net lift force that pulls the cylinder toward the vortex. As the next vortex sheds from the opposite side, the pressure drop shifts, and the lift force reverses direction.</p>
+<p>While this is a fundamental problem in fluid mechanics, we encounter its effects daily. A common example is the high-pitched whistling or humming produced by a car antenna at highway speeds. This sound is the acoustic signature of vortex shedding; as the air flows past the thin rod, the alternating vortices create pressure fluctuations that vibrate the air. This happens because as a vortex is “born” on one side of the cylinder, it creates a local region of high-velocity, low-pressure fluid. This generates a net lift force that pulls the cylinder toward the vortex. As the next vortex sheds from the opposite side, the pressure drop shifts, and the lift force reverses direction.</p>
 <p>If the cylinder is rigid and fixed, it simply experiences these fluctuating loads as fatigue or noise. However, if the structure is elastic or mounted on springs (such as a car antenna, a bridge cable, or an offshore riser), this periodic forcing begins to move the structure.</p>
-<p>When the shedding frequency (<span class="math inline">\(f_s\)</span>) nears the natural frequency of the structure (<span class="math inline">\(f_n\)</span>), the fluid and the structure begin to synchronize. The shedding frequency can actually shift to match the structural frequency, leading to a state called lock-in. The result is Vortex-Induced Vibrations (VIV): high-amplitude, self-sustaining oscillations that can lead to rapid structural failure.</p>
+<p>When the shedding frequency (<span class="math inline">\(f_s\)</span>) nears the natural frequency of the structure (<span class="math inline">\(f_n\)</span>), the fluid and the structure begin to synchronize. The shedding frequency can actually shift to match the structural frequency, leading to a state called <strong>lock-in</strong>. The result is Vortex-Induced Vibrations (VIV): high-amplitude, self-sustaining oscillations that can lead to rapid structural failure. The transition from a static cylinder to a vibrating one marks the shift into the domain of Fluid-Structure Interaction (FSI). In this regime, the problem is no longer “one-way” (the fluid moving the cylinder), but a tightly coupled “two-way” feedback loop. As the cylinder moves, it alters the boundary conditions of the flow field, which in turn modifies the timing and strength of the vortex shedding.</p>
 </section>
-<section id="vortex-induced-vibrations-on-a" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="vortex-induced-vibrations-on-a">Vortex induced vibrations on a</h2>
-<p>While this</p>
+<section id="vortex-induced-vibrations-on-a-cylinder-with-two-degrees-of-freedom" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="vortex-induced-vibrations-on-a-cylinder-with-two-degrees-of-freedom">Vortex induced vibrations on a cylinder with two-degrees of freedom</h2>
+<p>To investigate this phenomenon, we propose a simplified system where a cylinder moves elastically in the <span class="math inline">\(x\)</span>-<span class="math inline">\(y\)</span> plane. For solver validation, this study replicates the experimental results of Jauvtis and Williamson (2003) for a low mass ratio (<span class="math inline">\(m^* = 2.6\)</span>).</p>
+<p><strong>Simulation Parameters:</strong></p>
+<ul>
+<li><strong>Cylinder Diameter (<span class="math inline">\(D\)</span>):</strong> 0.05 m</li>
+<li><strong>Fluid Medium:</strong> Water</li>
+<li><strong>Natural Frequency (<span class="math inline">\(f_n\)</span>):</strong> 0.4 Hz</li>
+<li><strong>Reduced Velocity Range (<span class="math inline">\(U_r = \frac{U}{f_n D}\)</span>):</strong> 2 to 12</li>
+</ul>
+<p>While we expect maximum vibration amplitude near <span class="math inline">\(U_r = 5\)</span> (where <span class="math inline">\(f_n \approx f_s\)</span>), the physical reality is more complex. Despite the apparent simplicity of the setup, the system is physically rich, exhibiting purely fluid-mechanical hysteresis and distinct response branches that challenge numerical accuracy.</p>
+<section id="numerical-modeling" class="level3 page-columns page-full">
+<h3 class="anchored">Numerical Modeling</h3>
+<p>Numerical simulations were performed using <strong>OpenFOAM</strong>, with computational domains generated as O-grids using the <code>blockMesh</code> utility. To assess the influence of turbulence modeling and three-dimensionality on VIV prediction, two approaches were compared:</p>
+<ul>
+<li><strong>2D RANS</strong>: Utilizing the <span class="math inline">\(k\)</span>-<span class="math inline">\(\omega\)</span> SST model.</li>
+<li><strong>3D LES</strong>: Utilizing a <span class="math inline">\(k\)</span>-equation sub-grid scale model or WALE (Wall-Adapting Local Eddy-viscosity) model.</li>
+</ul>
+<section id="fluid-structure-coupling-and-mesh-motion" class="level4 page-columns page-full">
+<h4 class="anchored">Fluid-Structure Coupling and Mesh Motion</h4>
+<p>The structural response was modeled using a <strong>six-degree-of-freedom (6-DoF)</strong> rigid-body solver integrated within the <code>dynamicMesh</code> framework. The cylinder’s motion is governed by a <strong>Newmark-beta</strong> ODE solver, which accounts for the hydrodynamic forces, structural mass, and damping. A custom restraint library was developed to implement a <strong>nonlinear coupled spring model</strong>. This allowed for the investigation of geometrical nonlinearities in the structural restoration forces.</p>
+<p>To handle the domain deformation, two distinct methods were evaluated:</p>
+<ol type="1">
+<li><strong>Arbitrary Lagrangian-Eulerian (ALE)</strong>: Utilizing the <code>dynamicMotionSolverFvMesh</code> with a distance-based displacement Laplacian to morph the mesh around the moving cylinder.</li>
+<li><strong>Overset (Chimera) Mesh</strong>: Utilizing a background mesh and a translated foreground component mesh to maintain high cell quality regardless of the oscillation amplitude.</li>
+</ol>
+<div id="fig-vortex-sim" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-vortex-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<video width="100%" height="auto" autoplay="" loop="" muted="" playsinline="">
+<source src="images/lci_4.mp4" type="video/mp4">
+</video>
+<p>Volumetric representation of the vortex shedding using the <span class="math inline">\(\lambda_{ci}\)</span> criterion, for an LES simulation at <span class="math inline">\(U_r=6\)</span>.</p>
+<p>:::</p>
+<hr>
+<section id="references" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li>Jauvtis, N., &amp; Williamson, C. H. K. (2003). The effect of two degrees of freedom on vortex-induced vibration at low mass and damping. Journal of Fluid Mechanics, 480, 37.321.</li>
+</ul>
 <hr>
 <div class="column-screen" style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;">
 <!-- ### Behind the Simulation
@@ -231,6 +270,15 @@ The workflow involved a complete CFD pipeline:
 </div>
 
 
+</section>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-vortex-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
