@@ -59,32 +59,16 @@ To handle the domain deformation, two distinct methods were evaluated, with the 
 Volumetric representation of the vortex shedding using the $\lambda_{ci}$ criterion, for an LES simulation at $U_r=6$.
 :::
 
----
+***
 
 ## References
 
-* Jauvtis, N., & Williamson, C. H. K. (2003). The effect of two degrees of freedom on vortex-induced vibration at low mass and damping. *Journal of Fluid Mechanics*.
+Jauvtis, N., & Williamson, C. H. K. (2003). The effect of two degrees of freedom on vortex-induced vibration at low mass and damping. *Journal of Fluid Mechanics*, 480, 37–63.
 
-
----
-
+***
 
 ::: {.column-screen style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;"}
 
-<!-- ### Behind the Simulation
-
-This project was born out of equal parts curiosity and a personal vendetta against the wind on San Martín Street. It is a deep dive into urban aerodynamics using the most iconic building (for better or worse) in Bariloche as a case study. 
-
-::: {.footer-list-container}
-The workflow involved a complete CFD pipeline:
-
-* **Preprocessing:** Sourcing and cleaning urban CAD data and complex topography into analysis-ready STL files.
-* **Meshing:** Generating high-fidelity computational grids using `snappyHexMesh`.
-* **Solving:** Executing steady-state simulations within the **OpenFOAM** environment, with the addition of porous zones for vegetation modelling.
-* **Post-processing:** Utilizing **ParaView**, **Python**, and specialized image manipulation for results visualization.
-* **Analysis:** Interpreting local flow phenomena (such as updrafts) to quantify their impact on pedestrian comfort.
-:::
- -->
 Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let's connect!
 
 <span class="iconify" data-icon="tabler:brand-linkedin"></span>[LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | <span class="iconify" data-icon="tabler:mail"></span>[Email Me](mailto:santiago.zuniga@ib.edu.ar)
