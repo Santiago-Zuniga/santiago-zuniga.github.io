@@ -217,11 +217,11 @@ window.Quarto = {
 <p><strong>Simulation Parameters:</strong></p>
 <ul>
 <li><strong>Cylinder Diameter (<span class="math inline">\(D\)</span>):</strong> 0.05 m</li>
-<li><strong>Fluid Medium:</strong> Water</li>
+<li><strong>Fluid:</strong> Water</li>
 <li><strong>Natural Frequency (<span class="math inline">\(f_n\)</span>):</strong> 0.4 Hz</li>
-<li><strong>Reduced Velocity Range (<span class="math inline">\(U_r = \frac{U}{f_n D}\)</span>):</strong> 2 to 12</li>
+<li><strong>Reduced Velocity Range <span class="math inline">\(\left( U_r = \frac{U}{f_n D}\right)\)</span>:</strong> 2 to 12</li>
 </ul>
-<p>While we expect maximum vibration amplitude near <span class="math inline">\(U_r = 5\)</span> (where <span class="math inline">\(f_n \approx f_s\)</span>), the physical reality is more complex. Despite the apparent simplicity of the setup, the system is physically rich, exhibiting purely fluid-mechanical hysteresis and distinct response branches that challenge numerical accuracy.</p>
+<p>While we expect maximum vibration amplitude near <span class="math inline">\(U_r = 5\)</span> (where <span class="math inline">\(f_n \approx f_s\)</span>), the physical reality is more complex. The system exhibits <em>bistability</em> and <em>path-dependent hysteresis</em>, a phenomenon usually reserved for fields like electrodynamics rather than classical mechanics. Depending on whether the flow velocity is increasing or decreasing, the fluid-structure coupling remembers its previous state and locks into different response branches. This purely fluid-mechanical memory makes the system physically rich and difficult to simulate accurately.</p>
 <section id="numerical-modeling" class="level3">
 <h3 class="anchored" data-anchor-id="numerical-modeling">Numerical Modeling</h3>
 <p>Numerical simulations were performed using <strong>OpenFOAM</strong>, with computational domains generated as O-grids using the <code>blockMesh</code> utility. To assess the influence of turbulence modeling and three-dimensionality on VIV prediction, two approaches were compared:</p>

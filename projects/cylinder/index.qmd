@@ -29,11 +29,11 @@ To investigate this phenomenon, we propose a simplified system where a cylinder 
 **Simulation Parameters:**
 
 * **Cylinder Diameter ($D$):** 0.05 m
-* **Fluid Medium:** Water
+* **Fluid:** Water
 * **Natural Frequency ($f_n$):** 0.4 Hz
-* **Reduced Velocity Range ($U_r = \frac{U}{f_n D}$):** 2 to 12
+* **Reduced Velocity Range $\left( U_r = \frac{U}{f_n D}\right)$:** 2 to 12
 
-While we expect maximum vibration amplitude near $U_r = 5$ (where $f_n \approx f_s$), the physical reality is more complex. Despite the apparent simplicity of the setup, the system is physically rich, exhibiting purely fluid-mechanical hysteresis and distinct response branches that challenge numerical accuracy.
+While we expect maximum vibration amplitude near $U_r = 5$ (where $f_n \approx f_s$), the physical reality is more complex. The system exhibits *bistability* and *path-dependent hysteresis*, a phenomenon usually reserved for fields like electrodynamics rather than classical mechanics. Depending on whether the flow velocity is increasing or decreasing, the fluid-structure coupling remembers its previous state and locks into different response branches. This purely fluid-mechanical memory makes the system physically rich and difficult to simulate accurately.
 
 ### Numerical Modeling
 
