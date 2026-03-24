@@ -163,7 +163,7 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -210,7 +210,7 @@ window.Quarto = {
 </div>
 <p>The simulations were conducted using the <code>simpleFoam</code> solver for steady-state incompressible flow, utilizing the <span class="math inline">\(k-\omega\)</span> SST turbulence model. The car speed was chosen to be 200 km/h (56 m/s). For this, I set the usual inlet-outlet boundary conditions, plus the bottom wall (ground) moving at the same speed. The wheels’ rotation was imposed using a Dirichlet boundary condition with the appropriate rotational speed. Only half of the car was simulated, using a symmetry boundary condition.</p>
 </section>
-<section id="results" class="level2">
+<section id="results" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <p>Before analysing the results, just as a quick recap of the 2026 aerodynamic regulations, the FIA is making some massive changes. The biggest shift is the move away from the ground effect era we have had since 2022. The complex Venturi tunnels under the car are gone, replaced by a much flatter floor and a larger rear diffuser. The aerodynamic surfaces themselves are also smaller overall, with a simpler, narrower front wing and a rear wing that ditches the lower beam element. Since the new 50/50 hybrid power units require a much more efficient car, there is a huge focus on active aerodynamics to compensate. Both the front and rear wings now feature movable elements that open up on the straights to shed drag, and then close up in the corners to provide downforce. We won’t focus on the active aero part for now, but it’s something I’d like to tackle in the near future.</p>
 <p>We’ll start by looking at the isosurface of <span class="math inline">\(C_p=0\)</span>, as shown in the image below (Figure 2). <span class="math inline">\(C_p\)</span> stands for the pressure coefficient. It is a dimensionless number that compares the local static pressure at any point in the flow field to the freestream pressure. A positive <span class="math inline">\(C_p\)</span> means the pressure is higher than the ambient air, which typically happens where the flow is stagnating against a surface. A negative <span class="math inline">\(C_p\)</span> indicates suction, where the air is accelerating. Therefore, an isosurface of <span class="math inline">\(C_p=0\)</span> acts as a 3D boundary separating the regions of positive and negative pressure. Visualizing this specific surface is incredibly useful because it maps out the true aerodynamic wake of the car.</p>
@@ -340,10 +340,10 @@ window.Quarto = {
     })();
   </script>
 </div>
-<p>:::</p>
+<div class="column-screen" style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;">
 <p>Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let’s connect!</p>
 <p><iconify-icon role="img" inline="" icon="tabler:brand-linkedin" aria-label="Icon brand-linkedin from tabler Iconify.design set." title="Icon brand-linkedin from tabler Iconify.design set."></iconify-icon> <a href="https://www.linkedin.com/in/zunigasantiago/">LinkedIn</a> | <iconify-icon role="img" inline="" icon="tabler:mail" aria-label="Icon mail from tabler Iconify.design set." title="Icon mail from tabler Iconify.design set."></iconify-icon> <a href="mailto:santiago.zuniga@ib.edu.ar">Email Me</a></p>
-<p>:::</p>
+</div>
 
 
 </section>
