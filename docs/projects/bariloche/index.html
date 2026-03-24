@@ -301,43 +301,32 @@ window.Quarto = {
 </div>
 <p>Finally, by moving the slider below, the wind speed at different heights can be seen, revealing the extensive wake produced by the largest building in Bariloche.</p>
 <div id="velocity-explorer" style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px;">
-  <img id="heightSliderImage" src="images/slices/anim.0000.jpeg" style="width:100%; max-width:900px; border-radius: 5px;">
+  <img id="heightSliderImage" src="images/slices_cut/3cut_xz.0000.jpeg" style="width:100%; max-width:900px; border-radius: 5px;">
   
   <div style="margin-top: 15px;">
-    <p><strong>Height from ground:</strong> <span id="heightValue" style="color: #007bff; font-weight: bold;">0</span></p>
-    <input type="range" min="0" max="40" value="0" step="1" id="heightSlider" style="width:90%;">
+    <p><strong>Location</strong></p>
+    <input type="range" min="0" max="99" value="0" step="1" id="heightSlider" style="width:90%;">
   </div>
 
   <script>
     (function() {
       const slider = document.getElementById('heightSlider');
       const imgDisplay = document.getElementById('heightSliderImage');
-      const valDisplay = document.getElementById('heightValue');
 
       if (!slider || !imgDisplay) return;
 
-      const totalImages = 40; 
-      const imageFolder = "./images/slices/"; 
-      const images = [];
-
-      for (let i = 0; i <= totalImages; i++) {
+      // Preload images for a smoother slider experience
+      for (let i = 0; i <= 99; i++) {
         const img = new Image();
         const frameName = i.toString().padStart(4, '0');
-        // Standardized to .jpeg
-        img.src = `${imageFolder}anim.${frameName}.jpeg`;
-        images.push(img);
-        
-        // Debugging the first path
-        if (i === 0) console.log("Attempting to load:", img.src);
+        img.src = `images/slices_cut/3cut_xz.${frameName}.jpeg`;
       }
 
-      slider.oninput = function() {
-        const idx = parseInt(this.value);
-        if (images[idx]) {
-          imgDisplay.src = images[idx].src;
-          valDisplay.innerHTML = (idx + 0.5) + " m";
-        }
-      };
+      // Update the image source when the slider moves
+      slider.addEventListener('input', function() {
+        const frameName = this.value.toString().padStart(4, '0');
+        imgDisplay.src = `images/slices_cut/3cut_xz.${frameName}.jpeg`;
+      });
     })();
   </script>
 </div>
