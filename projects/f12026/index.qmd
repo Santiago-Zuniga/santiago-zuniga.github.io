@@ -24,7 +24,7 @@ Before analysing the results, just as a quick recap of the 2026 aerodynamic regu
 
 We'll start by looking at the isosurface of $C_p=0$, as shown in the image below (Figure 2). $C_p$ stands for the pressure coefficient. It is a dimensionless number that compares the local static pressure at any point in the flow field to the freestream pressure. A positive $C_p$ means the pressure is higher than the ambient air, which typically happens where the flow is stagnating against a surface. A negative $C_p$ indicates suction, where the air is accelerating. Therefore, an isosurface of $C_p=0$ acts as a 3D boundary separating the regions of positive and negative pressure. Visualizing this specific surface is incredibly useful because it maps out the true aerodynamic wake of the car. 
 
-Looking at the rendering, a few key aerodynamic features jump out immediately. First, the outwash effect is very prominent. You can clearly see the isosurface bulging aggressively outward around the front wheels. This confirms that the front wing and suspension elements are successfully doing their job of pushing the highly turbulent tire wake away from the vital aerodynamic surfaces downstream, like the floor edges and sidepods. The design of the endplates, footplates, and wakeboards is a key factor in this, and we can see a lot of variation between the teams during this season. 
+Looking at the rendering, a few key aerodynamic features jump out immediately. First, the outwash effect is very prominent. You can clearly see the isosurface bulging outward around the front wheels. This confirms that the front wing and suspension elements are successfully doing their job of pushing the highly turbulent tire wake away from the vital aerodynamic surfaces downstream, like the floor edges and sidepods. The design of the endplates, footplates, and wakeboards is a key factor in this, and we can see a lot of variation between the teams during this season. 
 
 Additionally, if we look down the centerline of the car, the isosurface hugs the engine cover tightly. This indicates that the flow is being funneled efficiently over the bodywork, arriving as clean as possible to the rear wing elements to maximize their efficiency in producing downforce.
 
@@ -44,14 +44,21 @@ Another striking feature is the bright orange, high-intensity core sitting right
 :::
 
 
-Now 
+To better see how the flow evolves as it travels over the car, I put together this interactive slice explorer. By dragging the slider below, you can move a transverse plane from the front wing all the way to the rear wake. The view is split to show two different variables: the left side displays the streamwise velocity and the right side shows the kinematic pressure. Here are a few cool things to look out for as you play around with the slider:
+
+* **The Outwash Effect:** As the slice hits the front wing and tires, look at the velocity field on the left. You will see a massive, low-velocity (blue) wake forming directly behind the tires. However, notice how that messy wake is being violently pushed outward and away from the center of the car. That is the front wing endplates doing their job, keeping that dirty air from getting sucked under the floor.
+* **Floor Suction:** As you move the slice through the middle of the car (the sidepods), focus on the pressure plot on the right. You can clearly see the dark blue, low-pressure zones hugging the underside of the floor, effectively sucking the car into the ground to generate downforce. Although the ground effect is not so predominant in this season, it's still an important source of downforce.
+* **The Halo and Driver Wake:** When the slice crosses the cockpit, you can see the velocity deficit caused by the halo and the driver's helmet. It is a very messy area of flow that travels straight back toward the engine cover and rear wing.
+* **The Diffuser and Rear Wing:** Finally, as you reach the rear of the car, you can watch the diffuser expanding the air from underneath the floor, slowing it down to merge with the freestream. Above that, the rear wing is working heavily on the clean air that arrives to it. You can see a massive low-pressure zone underneath the main plane, and a huge, turbulent velocity wake trailing off into the distance behind the car. 
+
+
 
 ```{=html}
 <div id="velocity-explorer" style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px;">
   <img id="heightSliderImage" src="images/slices_cut/3cut_xz.0000.jpeg" style="width:100%; max-width:900px; border-radius: 5px;">
   
   <div style="margin-top: 15px;">
-    <p><strong>Location</strong></p>
+    <p><strong>Cross-section Position</strong></p>
     <input type="range" min="0" max="99" value="0" step="1" id="heightSlider" style="width:90%;">
   </div>
 
@@ -78,6 +85,57 @@ Now
   </script>
 </div>
 ```
+
+
+
+To wrap up the visual analysis, I built two more interactive tools, this time focusing on streamlines. While slices give us a great 2D look at the flow field, streamlines allow us to trace the air as it navigate around the car. In these renders, the lines are colored by velocity magnitude, and the car body itself is colored by kinematic pressure to tie everything together.
+
+Here is a breakdown of what you can observe with each slider:
+
+**Vertical Line Source (Moving Center to Outward)**
+This first slider controls a vertical line of flow, moving it laterally from the centerline of the car out toward the wheels.
+* **The Centerline:** When the slider is near zero, watch how the air perfectly tracks over the nose, splits around the halo, and feeds directly into the rear wing. 
+* **Suspension and Sidepods:** As you drag the source outward, you can see the flow interacting with the complex front suspension geometry. You can also trace how the air wraps tightly around the undercut of the sidepods, driving that crucial flow toward the rear of the car.
+
+**Horizontal Line Source (Moving Bottom to Top)**
+The second slider controls a horizontal line source, moving it vertically from just above the ground all the way up to the top of the roll hoop.
+* **Feeding the Floor:** When the source is low to the ground, you can see the air diving under the front wing and channeling straight into the floor inlets. This perfectly highlights how the remaining ground effect structures are fed with high-velocity air.
+* **Generating Outwash:** As the line source moves up slightly along the front wing profile, pay attention to the endplates on the outer edges. You can clearly trace how they steer the airflow outward and around the front tires.
+* **Over-body Flow:** As you move the slider higher, you can trace the air flowing over the top of the sidepods, getting pushed aside by the front tires, and eventually clearing the driver's helmet and airbox. 
+
+
+```{=html}
+<div id="streamline-ver-explorer" style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 30px;">
+  <img id="sliderImageVer" src="images/slices_streamVer/opt_2stream_ver.0001.jpeg" style="width:100%; max-width:900px; border-radius: 5px;">
+  
+  <div style="margin-top: 15px;">
+    <p><strong>Lateral Position</strong></p>
+    <input type="range" min="1" max="49" value="50" step="1" id="sliderVer" style="width:90%;">
+  </div>
+
+  <script>
+    (function() {
+      const sliderVer = document.getElementById('sliderVer');
+      const imgDisplayVer = document.getElementById('sliderImageVer');
+
+      if (!sliderVer || !imgDisplayVer) return;
+
+      for (let i = 1; i <= 50; i++) {
+        const img = new Image();
+        const frameName = i.toString().padStart(4, '0');
+        img.src = `images/slices_streamVer/opt_2stream_ver.${frameName}.jpeg`;
+      }
+
+      sliderVer.addEventListener('input', function() {
+        const frameName = this.value.toString().padStart(4, '0');
+        imgDisplayVer.src = `images/slices_streamVer/opt_2stream_ver.${frameName}.jpeg`;
+      });
+    })();
+  </script>
+</div>
+```
+
+
 
 
 :::
