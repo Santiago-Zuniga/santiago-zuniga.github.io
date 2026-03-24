@@ -18,6 +18,8 @@ website:
         text: Multiscale CFD applied to buoyancy-driven flows
       - href: projects/bariloche/index.qmd
         text: Bariloche Urban Wind
+      # - href: projects/f12026/index.qmd
+      #   text: Formula One 2026 car
       # - href: projects/cylinder/index.qmd
       #   text: Vortex-induced vibrations
 

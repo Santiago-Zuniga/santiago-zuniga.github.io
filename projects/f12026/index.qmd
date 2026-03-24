@@ -1,0 +1,36 @@
+---
+title: "CFD study of a 2026 Formula One car"
+subtitle: "Simulating a 2026 Formula One car at 200 kmh"
+date: "2026-03-23"
+---
+
+It should be of no surprise that I'm a fan of F1. I am a mechanical engineer with a fascination for aerodynamics, so... yeah. A week ago I was discussing with some friends the utility of [Ferrari's little wing on their halo for the Chinese Grand Prix](https://www.motorsport.com/f1/news/f1-ferrari-the-missing-halo-flap-for-qualifying-wasnt-a-windshield/10806210/), and then I remembered I do CFD for a living. I should be able to have some fun with this in my free time. And I did. This page is by no means a complete and exhaustive aerodynamic study of the FIA 2026 regulations, but it's an interesting project nevertheless.
+
+
+## Simulation details
+First, to obtain a 3D model of a 2026 Formula One car, I used [this model](https://grabcad.com/library/formula1-2026-fia-showcar-1) based on the [FIA 2026 showcar](https://www.fia.com/news/new-era-competition-fia-showcases-future-focused-formula-1-regulations-2026-and-beyond), thanks to the uploader. I then modified it extensively in Blender to make it watertight, add a simplified driver, separate the wheels, empty the vents, and a myriad of other small adjustments.
+
+The computational mesh was then generated using OpenFOAM’s `snappyHexMesh` utility, with significant refinement applied near the surface and boundary layers included. Two meshes were used: a smaller 2M-cell mesh for initial testing and a larger 11M-cell mesh for the final simulation, really pushing the limits of my laptop. The final mesh can be seen in Figure 1. Full disclaimer: the STL could have used more work to achieve a higher-quality mesh. We can see some random patches created by `snappyHexMesh` around spurious features of the STL file. Since this was a hobby project, I decided to move on.
+
+::: {layout-ncol=1}
+![Figure 1: Computational mesh used in this study.](images/mesh_inset.jpg){group="none1"}
+:::
+
+The simulations were conducted using the `simpleFoam` solver for steady-state incompressible flow, utilizing the $k-\omega$ SST turbulence model. The car speed was chosen to be 200 km/h (56 m/s). For this I set the usual inlet-outlet boundary conditions, plus the bottom wall (ground) moving at the same speed. The wheels rotation was imposed using a dirichlet boundary condition on them with the appropiate rotation speed. 
+
+
+## Results
+Before analysing the results, just as a quick recap of the 2026 aerodynamic regulations, the FIA is making some massive changes. The biggest shift is the move away from the ground effect era we have had since 2022. The complex Venturi tunnels under the car are gone, replaced by a much flatter floor and a larger rear diffuser. The aerodynamic surfaces themselves are also smaller overall, with a simpler, narrower front wing and a rear wing that ditches the lower beam element. Since the new 50/50 hybrid power units require a much more efficient car, there is a huge focus on active aerodynamics to compensate. Both the front and rear wings now feature movable elements that open up on the straights to shed drag, and then close up in the corners to provide downforce. We won't focus on the active aero part for now, but it's something I'd like to tackle in the near future.
+
+
+
+:::
+
+Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let's connect!
+
+{{< iconify tabler brand-linkedin >}} [LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | {{< iconify tabler mail >}} [Email Me](mailto:santiago.zuniga@ib.edu.ar)
+
+:::
+
+
+
