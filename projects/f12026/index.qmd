@@ -109,8 +109,8 @@ The second slider controls a horizontal line source, moving it vertically from j
   <img id="sliderImageVer" src="images/slices_streamVer/opt_2stream_ver.0025.jpeg" style="width:100%; max-width:900px; border-radius: 5px;">
   
   <div style="margin-top: 15px;">
-    <p><strong>Lateral Position</strong></p>
-    <input type="range" min="1" max="50" value="25" step="1" id="sliderVer" style="width:90%;">
+    <p><strong>Vertical Position</strong></p>
+    <input type="range" min="1" max="50" value="25" step="1" id="sliderver" style="width:90%;">
   </div>
 
   <script>
