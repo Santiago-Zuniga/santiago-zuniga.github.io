@@ -16,12 +16,79 @@ The computational mesh was then generated using OpenFOAM’s `snappyHexMesh` uti
 ![Figure 1: Computational mesh used in this study.](images/mesh_inset.jpg){group="none1"}
 :::
 
-The simulations were conducted using the `simpleFoam` solver for steady-state incompressible flow, utilizing the $k-\omega$ SST turbulence model. The car speed was chosen to be 200 km/h (56 m/s). For this I set the usual inlet-outlet boundary conditions, plus the bottom wall (ground) moving at the same speed. The wheels rotation was imposed using a dirichlet boundary condition on them with the appropiate rotation speed. 
+The simulations were conducted using the `simpleFoam` solver for steady-state incompressible flow, utilizing the $k-\omega$ SST turbulence model. The car speed was chosen to be 200 km/h (56 m/s). For this, I set the usual inlet-outlet boundary conditions, plus the bottom wall (ground) moving at the same speed. The wheels' rotation was imposed using a Dirichlet boundary condition with the appropriate rotational speed.
 
 
 ## Results
 Before analysing the results, just as a quick recap of the 2026 aerodynamic regulations, the FIA is making some massive changes. The biggest shift is the move away from the ground effect era we have had since 2022. The complex Venturi tunnels under the car are gone, replaced by a much flatter floor and a larger rear diffuser. The aerodynamic surfaces themselves are also smaller overall, with a simpler, narrower front wing and a rear wing that ditches the lower beam element. Since the new 50/50 hybrid power units require a much more efficient car, there is a huge focus on active aerodynamics to compensate. Both the front and rear wings now feature movable elements that open up on the straights to shed drag, and then close up in the corners to provide downforce. We won't focus on the active aero part for now, but it's something I'd like to tackle in the near future.
 
+We'll start by looking at the isosurface of $C_p=0$, as shown in the image below (Figure 2). $C_p$ stands for the pressure coefficient. It is a dimensionless number that compares the local static pressure at any point in the flow field to the freestream pressure. A positive $C_p$ means the pressure is higher than the ambient air, which typically happens where the flow is stagnating against a surface. A negative $C_p$ indicates suction, where the air is accelerating. Therefore, an isosurface of $C_p=0$ acts as a 3D boundary separating the regions of positive and negative pressure. Visualizing this specific surface is incredibly useful because it maps out the true aerodynamic wake of the car. 
+
+Looking at the rendering, a few key aerodynamic features jump out immediately. First, the outwash effect is very prominent. You can clearly see the isosurface bulging aggressively outward around the front wheels. This confirms that the front wing and suspension elements are successfully doing their job of pushing the highly turbulent tire wake away from the vital aerodynamic surfaces downstream, like the floor edges and sidepods. The design of the endplates, footplates, and wakeboards is a key factor in this, and we can see a lot of variation between the teams during this season. 
+
+Additionally, if we look down the centerline of the car, the isosurface hugs the engine cover tightly. This indicates that the flow is being funneled efficiently over the bodywork, arriving as clean as possible to the rear wing elements to maximize their efficiency in producing downforce.
+
+::: {layout-ncol=1}
+![Figure 2: Isosurfaces of $C_p=0$.](images/cp0_render.jpg){group="results"}
+:::
+
+Moving on to the next visualization (Figure 3), we are looking at multiple isosurfaces of specific Turbulent Kinetic Energy, or $k$. To get a better look at the internal structure of the flow, I layered several isosurfaces here, mapping the color and transparency to the intensity of the turbulence. The dark red, highly transparent regions represent the outer boundaries of the turbulent wake, while the solid, bright orange areas show the intense inner cores where the turbulent energy is highest. TKE is a measure of the energy contained in the swirling, turbulent eddies within the fluid flow. Areas with high $k$ values represent highly turbulent air. In the context of motorsport, turbulence is often a source of aerodynamic drag and is the primary culprit behind the "dirty air" that makes it so difficult for cars to follow each other closely through corners. 
+
+When we look at this render, the turbulent wake structures become very clear. The front tires, unsurprisingly, generate a massive amount of turbulence. While the pressure plot showed us the outwash effect pushing the air outward, this TKE plot shows the sheer amount of turbulent energy being wasted in that tire wake. 
+
+Another striking feature is the bright orange, high-intensity core sitting right behind the driver's helmet. Open cockpits have always been an aerodynamic headache, and this visual perfectly highlights the concentrated, messy flow structures generated in that specific area. Finally, as the flow moves backward, we can see the wakes from the rear tires and the rear wing combining to form the massive, turbulent plume trailing behind the car.
+
+
+::: {layout-ncol=1}
+![Figure 2: Isosurfaces of turbulent kinet energy$.](images/k_isos_render.jpg){group="results"}
+:::
+
+
+
+
+```{=html}
+<div id="velocity-explorer" style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px;">
+  <img id="heightSliderImage" src="images/slices_cut/3cut_xz.0000.jpeg" style="width:100%; max-width:900px; border-radius: 5px;">
+  
+  <div style="margin-top: 15px;">
+    <p><strong>Height from ground:</strong> <span id="heightValue" style="color: #007bff; font-weight: bold;">0</span></p>
+    <input type="range" min="0" max="40" value="0" step="1" id="heightSlider" style="width:90%;">
+  </div>
+
+  <script>
+    (function() {
+      const slider = document.getElementById('heightSlider');
+      const imgDisplay = document.getElementById('heightSliderImage');
+      const valDisplay = document.getElementById('heightValue');
+
+      if (!slider || !imgDisplay) return;
+
+      const totalImages = 100; 
+      const imageFolder = "./images/slices_cut/"; 
+      const images = [];
+
+      for (let i = 0; i <= totalImages; i++) {
+        const img = new Image();
+        const frameName = i.toString().padStart(4, '0');
+        // Standardized to .jpeg
+        img.src = `${imageFolder}3cut_xz.${frameName}.jpeg`; 
+        images.push(img);
+        
+        // Debugging the first path
+        if (i === 0) console.log("Attempting to load:", img.src);
+      }
+
+      slider.oninput = function() {
+        const idx = parseInt(this.value);
+        if (images[idx]) {
+          imgDisplay.src = images[idx].src;
+          valDisplay.innerHTML = 'Location';
+        }
+      };
+    })();
+  </script>
+</div>
+```
 
 
 :::
@@ -31,6 +98,4 @@ Think this is cool? I am always looking for interesting fluid dynamics problems 
 {{< iconify tabler brand-linkedin >}} [LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | {{< iconify tabler mail >}} [Email Me](mailto:santiago.zuniga@ib.edu.ar)
 
 :::
-
-
 

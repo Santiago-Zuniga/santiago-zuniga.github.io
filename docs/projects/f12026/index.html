@@ -204,11 +204,82 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>The simulations were conducted using the <code>simpleFoam</code> solver for steady-state incompressible flow, utilizing the <span class="math inline">\(k-\omega\)</span> SST turbulence model. The car speed was chosen to be 200 km/h (56 m/s). For this I set the usual inlet-outlet boundary conditions, plus the bottom wall (ground) moving at the same speed. The wheels rotation was imposed using a dirichlet boundary condition on them with the appropiate rotation speed.</p>
+<p>The simulations were conducted using the <code>simpleFoam</code> solver for steady-state incompressible flow, utilizing the <span class="math inline">\(k-\omega\)</span> SST turbulence model. The car speed was chosen to be 200 km/h (56 m/s). For this, I set the usual inlet-outlet boundary conditions, plus the bottom wall (ground) moving at the same speed. The wheels’ rotation was imposed using a Dirichlet boundary condition with the appropriate rotational speed.</p>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <p>Before analysing the results, just as a quick recap of the 2026 aerodynamic regulations, the FIA is making some massive changes. The biggest shift is the move away from the ground effect era we have had since 2022. The complex Venturi tunnels under the car are gone, replaced by a much flatter floor and a larger rear diffuser. The aerodynamic surfaces themselves are also smaller overall, with a simpler, narrower front wing and a rear wing that ditches the lower beam element. Since the new 50/50 hybrid power units require a much more efficient car, there is a huge focus on active aerodynamics to compensate. Both the front and rear wings now feature movable elements that open up on the straights to shed drag, and then close up in the corners to provide downforce. We won’t focus on the active aero part for now, but it’s something I’d like to tackle in the near future.</p>
+<p>We’ll start by looking at the isosurface of <span class="math inline">\(C_p=0\)</span>, as shown in the image below (Figure 2). <span class="math inline">\(C_p\)</span> stands for the pressure coefficient. It is a dimensionless number that compares the local static pressure at any point in the flow field to the freestream pressure. A positive <span class="math inline">\(C_p\)</span> means the pressure is higher than the ambient air, which typically happens where the flow is stagnating against a surface. A negative <span class="math inline">\(C_p\)</span> indicates suction, where the air is accelerating. Therefore, an isosurface of <span class="math inline">\(C_p=0\)</span> acts as a 3D boundary separating the regions of positive and negative pressure. Visualizing this specific surface is incredibly useful because it maps out the true aerodynamic wake of the car.</p>
+<p>Looking at the rendering, a few key aerodynamic features jump out immediately. First, the outwash effect is very prominent. You can clearly see the isosurface bulging aggressively outward around the front wheels. This confirms that the front wing and suspension elements are successfully doing their job of pushing the highly turbulent tire wake away from the vital aerodynamic surfaces downstream, like the floor edges and sidepods. The design of the endplates, footplates, and wakeboards is a key factor in this, and we can see a lot of variation between the teams during this season.</p>
+<p>Additionally, if we look down the centerline of the car, the isosurface hugs the engine cover tightly. This indicates that the flow is being funneled efficiently over the bodywork, arriving as clean as possible to the rear wing elements to maximize their efficiency in producing downforce.</p>
+<div class="quarto-layout-panel" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/cp0_render.jpg" class="lightbox" data-gallery="results" title="Figure 2: Isosurfaces of C_p=0."><img src="images/cp0_render.jpg" class="img-fluid figure-img" alt="Figure 2: Isosurfaces of C_p=0."></a></p>
+<figcaption>Figure 2: Isosurfaces of <span class="math inline">\(C_p=0\)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Moving on to the next visualization (Figure 3), we are looking at multiple isosurfaces of specific Turbulent Kinetic Energy, or <span class="math inline">\(k\)</span>. To get a better look at the internal structure of the flow, I layered several isosurfaces here, mapping the color and transparency to the intensity of the turbulence. The dark red, highly transparent regions represent the outer boundaries of the turbulent wake, while the solid, bright orange areas show the intense inner cores where the turbulent energy is highest. TKE is a measure of the energy contained in the swirling, turbulent eddies within the fluid flow. Areas with high <span class="math inline">\(k\)</span> values represent highly turbulent air. In the context of motorsport, turbulence is often a source of aerodynamic drag and is the primary culprit behind the “dirty air” that makes it so difficult for cars to follow each other closely through corners.</p>
+<p>When we look at this render, the turbulent wake structures become very clear. The front tires, unsurprisingly, generate a massive amount of turbulence. While the pressure plot showed us the outwash effect pushing the air outward, this TKE plot shows the sheer amount of turbulent energy being wasted in that tire wake.</p>
+<p>Another striking feature is the bright orange, high-intensity core sitting right behind the driver’s helmet. Open cockpits have always been an aerodynamic headache, and this visual perfectly highlights the concentrated, messy flow structures generated in that specific area. Finally, as the flow moves backward, we can see the wakes from the rear tires and the rear wing combining to form the massive, turbulent plume trailing behind the car.</p>
+<div class="quarto-layout-panel" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/k_isos_render.jpg" class="lightbox" data-gallery="results" title="Figure 2: Isosurfaces of turbulent kinet energy$."><img src="images/k_isos_render.jpg" class="img-fluid figure-img" alt="Figure 2: Isosurfaces of turbulent kinet energy$."></a></p>
+<figcaption>Figure 2: Isosurfaces of turbulent kinet energy$.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="velocity-explorer" style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px;">
+  <img id="heightSliderImage" src="images/slices_cut/3cut_xz.0000.jpeg" style="width:100%; max-width:900px; border-radius: 5px;">
+  
+  <div style="margin-top: 15px;">
+    <p><strong>Height from ground:</strong> <span id="heightValue" style="color: #007bff; font-weight: bold;">0</span></p>
+    <input type="range" min="0" max="40" value="0" step="1" id="heightSlider" style="width:90%;">
+  </div>
+
+  <script>
+    (function() {
+      const slider = document.getElementById('heightSlider');
+      const imgDisplay = document.getElementById('heightSliderImage');
+      const valDisplay = document.getElementById('heightValue');
+
+      if (!slider || !imgDisplay) return;
+
+      const totalImages = 100; 
+      const imageFolder = "./images/slices_cut/"; 
+      const images = [];
+
+      for (let i = 0; i <= totalImages; i++) {
+        const img = new Image();
+        const frameName = i.toString().padStart(4, '0');
+        // Standardized to .jpeg
+        img.src = `${imageFolder}3cut_xz.${frameName}.jpeg`; 
+        images.push(img);
+        
+        // Debugging the first path
+        if (i === 0) console.log("Attempting to load:", img.src);
+      }
+
+      slider.oninput = function() {
+        const idx = parseInt(this.value);
+        if (images[idx]) {
+          imgDisplay.src = images[idx].src;
+          valDisplay.innerHTML = 'Location';
+        }
+      };
+    })();
+  </script>
+</div>
 <p>:::</p>
 <p>Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let’s connect!</p>
 <p><iconify-icon role="img" inline="" icon="tabler:brand-linkedin" aria-label="Icon brand-linkedin from tabler Iconify.design set." title="Icon brand-linkedin from tabler Iconify.design set."></iconify-icon> <a href="https://www.linkedin.com/in/zunigasantiago/">LinkedIn</a> | <iconify-icon role="img" inline="" icon="tabler:mail" aria-label="Icon mail from tabler Iconify.design set." title="Icon mail from tabler Iconify.design set."></iconify-icon> <a href="mailto:santiago.zuniga@ib.edu.ar">Email Me</a></p>
