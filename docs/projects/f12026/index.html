@@ -208,7 +208,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>The simulations were conducted using the <code>simpleFoam</code> solver for steady-state incompressible flow, utilizing the <span class="math inline">\(k-\omega\)</span> SST turbulence model. The car speed was chosen to be 200 km/h (56 m/s). For this, I set the usual inlet-outlet boundary conditions, plus the bottom wall (ground) moving at the same speed. The wheels’ rotation was imposed using a Dirichlet boundary condition with the appropriate rotational speed.</p>
+<p>The simulations were conducted using the <code>simpleFoam</code> solver for steady-state incompressible flow, utilizing the <span class="math inline">\(k-\omega\)</span> SST turbulence model. The car speed was chosen to be 200 km/h (56 m/s). For this, I set the usual inlet-outlet boundary conditions, plus the bottom wall (ground) moving at the same speed. The wheels’ rotation was imposed using a Dirichlet boundary condition with the appropriate rotational speed. Only half of the car was simulated, using a symmetry boundary condition.</p>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
@@ -308,6 +308,34 @@ window.Quarto = {
       sliderVer.addEventListener('input', function() {
         const frameName = this.value.toString().padStart(4, '0');
         imgDisplayVer.src = `images/slices_streamVer/opt_2stream_ver.${frameName}.jpeg`;
+      });
+    })();
+  </script>
+</div>
+<div id="streamline-ver-explorer" style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 30px;">
+  <img id="sliderImageVer" src="images/slices_streamHor/opt_2stream_hor.0001.jpeg" style="width:100%; max-width:900px; border-radius: 5px;">
+  
+  <div style="margin-top: 15px;">
+    <p><strong>Vertical Position</strong></p>
+    <input type="range" min="1" max="49" value="50" step="1" id="sliderVer" style="width:90%;">
+  </div>
+
+  <script>
+    (function() {
+      const sliderVer = document.getElementById('sliderVer');
+      const imgDisplayVer = document.getElementById('sliderImageVer');
+
+      if (!sliderVer || !imgDisplayVer) return;
+
+      for (let i = 1; i <= 50; i++) {
+        const img = new Image();
+        const frameName = i.toString().padStart(4, '0');
+        img.src = `images/slices_streamHor/opt_2stream_hor.${frameName}.jpeg`;
+      }
+
+      sliderVer.addEventListener('input', function() {
+        const frameName = this.value.toString().padStart(4, '0');
+        imgDisplayVer.src = `images/slices_streamHor/opt_2stream_hor.${frameName}.jpeg`;
       });
     })();
   </script>
