@@ -191,7 +191,7 @@ As a mechanical engineer with a background in complex, high-fidelity fluid dynam
 ::: {.column-screen style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;"}
 ### Behind the Simulation
 
-What started as a casual debate with friends over Ferrari's aerodynamic choices quickly escalated into a full weekend project. Since I run fluid dynamics simulations for a living, I figured the best way to understand the upcoming 2026 Formula One regulations was to just model them myself. Using an FIA showcar as a baseline, this study is a hands-on exploration of the complex aerodynamics and flow structures that will define the next era of motorsport.
+What started as a casual debate with friends over Ferrari's aerodynamic choices quickly escalated into a full weekend project. Since I run fluid dynamics simulations for a living, I figured the best way to understand the upcoming 2026 Formula One regulations was to just model them myself. Using a model based on the FIA showcar as a baseline, this study is a hands-on exploration of the complex aerodynamics and flow structures that will define the next era of motorsport.
 
 ::: {.footer-list-container}
 The workflow involved a complete CFD pipeline:
