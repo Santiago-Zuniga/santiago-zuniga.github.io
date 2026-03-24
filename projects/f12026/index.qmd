@@ -51,8 +51,8 @@ Now
   <img id="heightSliderImage" src="images/slices_cut/3cut_xz.0000.jpeg" style="width:100%; max-width:900px; border-radius: 5px;">
   
   <div style="margin-top: 15px;">
-    <p><strong>Height from ground:</strong> <span id="heightValue" style="color: #007bff; font-weight: bold;">0</span></p>
-    <input type="range" min="0" max="40" value="0" step="1" id="heightSlider" style="width:90%;">
+    <p><strong>Location:</strong> <span id="heightValue" style="color: #007bff; font-weight: bold;">0</span></p>
+    <input type="range" min="0" max="99" value="0" step="1" id="heightSlider" style="width:90%;">
   </div>
 
   <script>
