@@ -4,6 +4,7 @@ project:
   resources:
     - "projects/bariloche/images/slices/*.jpeg"
     - "projects/f12026/images/slices_cut/*.jpeg"
+    - "projects/f12026/images/slices_streamVer/*.jpeg"
   
 
 website:
