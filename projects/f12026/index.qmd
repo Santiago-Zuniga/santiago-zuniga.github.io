@@ -137,20 +137,20 @@ The second slider controls a horizontal line source, moving it vertically from j
 
 
 ```{=html}
-<div id="streamline-ver-explorer" style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 30px;">
-  <img id="sliderImageVer" src="images/slices_streamHor/opt_2stream_hor.0001.jpeg" style="width:100%; max-width:900px; border-radius: 5px;">
+<div id="streamline-hor-explorer" style="text-align: center; background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 30px;">
+  <img id="sliderImageHor" src="images/slices_streamHor/opt_2stream_hor.0001.jpeg" style="width:100%; max-width:900px; border-radius: 5px;">
   
   <div style="margin-top: 15px;">
     <p><strong>Vertical Position</strong></p>
-    <input type="range" min="1" max="49" value="50" step="1" id="sliderVer" style="width:90%;">
+    <input type="range" min="1" max="49" value="25" step="1" id="sliderHor" style="width:90%;">
   </div>
 
   <script>
     (function() {
-      const sliderVer = document.getElementById('sliderVer');
-      const imgDisplayVer = document.getElementById('sliderImageVer');
+      const sliderHor = document.getElementById('sliderHor');
+      const imgDisplayHor = document.getElementById('sliderImageHor');
 
-      if (!sliderVer || !imgDisplayVer) return;
+      if (!sliderHor || !imgDisplayHor) return;
 
       for (let i = 1; i <= 50; i++) {
         const img = new Image();
@@ -158,9 +158,9 @@ The second slider controls a horizontal line source, moving it vertically from j
         img.src = `images/slices_streamHor/opt_2stream_hor.${frameName}.jpeg`;
       }
 
-      sliderVer.addEventListener('input', function() {
+      sliderHor.addEventListener('input', function() {
         const frameName = this.value.toString().padStart(4, '0');
-        imgDisplayVer.src = `images/slices_streamHor/opt_2stream_hor.${frameName}.jpeg`;
+        imgDisplayHor.src = `images/slices_streamHor/opt_2stream_hor.${frameName}.jpeg`;
       });
     })();
   </script>
