@@ -3,9 +3,9 @@
     float: right;
     width: 175px; /* Adjust size as needed */
     height: 175px;
-    margin-left: 20px;
+    margin-left: 15px;
     margin-bottom: 10px;
-    border-radius: 50%;
+    border-radius: 40%;
     object-fit: cover;
     /* This makes the text follow the curve of the circle */
     shape-outside: circle(50%);
