@@ -1,5 +1,19 @@
-# Who am I?
+<style>
+  .profile-pic {
+    float: right;
+    width: 250px; /* Adjust size as needed */
+    height: 250px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* This makes the text follow the curve of the circle */
+    shape-outside: circle(50%);
+  }
+</style>
 
+# Who am I?
+<img src="profile.jpg" class="profile-pic">
 I'm Santiago Zúñiga, a Mechanical Engineer from Argentina with a Ph.D. focused on Computational Fluid Dynamics (CFD). My work revolves around understanding complex fluid behaviors, exploring everything from multi-scale multiphase flows and thermal analysis to fluid-structure interactions. I regularly work with high-performance computing clusters to run DNS, LES, and RANS simulations.
 
 Beyond the computer screen, I also enjoy hands-on experimental work. I have practical experience in the lab conducting wind tunnel tests, hot-wire anemometry, and PIV measurements. Additionally, I am passionate about teaching. I love sharing my enthusiasm for fluid mechanics and helping students bridge the gap between complex theory and practical engineering.
