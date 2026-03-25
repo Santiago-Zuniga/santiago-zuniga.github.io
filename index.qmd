@@ -1,8 +1,8 @@
 <style>
   .profile-pic {
     float: right;
-    width: 250px; /* Adjust size as needed */
-    height: 250px;
+    width: 175px; /* Adjust size as needed */
+    height: 175px;
     margin-left: 20px;
     margin-bottom: 10px;
     border-radius: 50%;
