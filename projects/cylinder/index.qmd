@@ -76,7 +76,7 @@ To accurately model the hysteresis effect reported in the literature, the reduce
 
 
 ::: {layout-ncol=1}
-![Figure 2: Reduced velocity $U_r$ as a function of time, for the 2D RANS simulations.](images/fig4.png){group="none1"}
+![Figure 2: Reduced velocity $U_r$ as a function of time, for the 2D RANS simulations.](images/fig4.png){group="none1" width="50%"}
 :::
 
 ### Results for the Linear System
@@ -96,7 +96,7 @@ The global dynamic response of the system was evaluated by comparing the 2D RANS
 
 
 ::: {layout-ncol=1}
-![Figure 3: Linear system response for the 2D RANS (mesh deformation and overset meshes) and 3D LES simulations. Top: Dimensionless transverse amplitude $A_y/D$ as a function of $U_r$. Trajectories (Lissajous curves) for selected velocities are also shown, scaled to each other. Bottom: Transverse oscillation frequency $f_y$ over the natural frequency of the system $f_n$ as a function of $U_r$. Both figures also show the experimental results from Jauvtis and Williamson.](images/fig7.png){group="none1"}
+![Figure 3: Linear system response for the 2D RANS (mesh deformation and overset meshes) and 3D LES simulations. Top: Dimensionless transverse amplitude $A_y/D$ as a function of $U_r$. Trajectories (Lissajous curves) for selected velocities are also shown, scaled to each other. Bottom: Transverse oscillation frequency $f_y$ over the natural frequency of the system $f_n$ as a function of $U_r$. Both figures also show the experimental results from Jauvtis and Williamson.](images/fig7.png){group="none1" width="70%"}
 :::
 
 ::: {layout-ncol=1}
