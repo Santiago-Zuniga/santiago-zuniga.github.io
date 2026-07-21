@@ -100,7 +100,7 @@ The global dynamic response of the system was evaluated by comparing the 2D RANS
 :::
 
 ::: {layout-ncol=1}
-![Figure 4: Top: Time history of the transverse oscillation $y/D$ of the linear system during the ascending velocity sweep (2D RANS simulation with deformable mesh). Bottom: Evolution of the cylinder orbits in the $x$-$y$ plane. The total simulation time was divided into five intervals, coinciding with the time scale of the top graph, to illustrate the change in shape and amplitude of the trajectories across the different response regimes. ](images/fig8.png){group="none1"}
+![Figure 4: Top: Time history of the transverse oscillation $y/D$ of the linear system during the ascending velocity sweep (2D RANS simulation with deformable mesh). Bottom: Evolution of the cylinder orbits in the $x$-$y$ plane. The total simulation time was divided into five intervals, coinciding with the time scale of the top graph, to illustrate the change in shape and amplitude of the trajectories across the different response regimes. ](images/fig8b.png){group="none1"}
 :::
 
 
@@ -125,7 +125,7 @@ To explore a more complex structural response, geometric nonlinearities were int
 :::
 
 ::: {layout-ncol=1}
-![Figure 6: Top: Time history of the transverse oscillation $y/D$ of the nonlinear system during the ascending velocity sweep (2D RANS simulation with deformable mesh). Bottom: Evolution of the cylinder orbits in the $x$-$y$ plane. The total simulation time was divided into five intervals, coinciding with the time scale of the top graph, to illustrate the change in shape and amplitude of the trajectories across the different response regimes.](images/fig10.png){group="none1"}
+![Figure 6: Top: Time history of the transverse oscillation $y/D$ of the nonlinear system during the ascending velocity sweep (2D RANS simulation with deformable mesh). Bottom: Evolution of the cylinder orbits in the $x$-$y$ plane. The total simulation time was divided into five intervals, coinciding with the time scale of the top graph, to illustrate the change in shape and amplitude of the trajectories across the different response regimes.](images/fig10b.png){group="none1"}
 :::
 
 
