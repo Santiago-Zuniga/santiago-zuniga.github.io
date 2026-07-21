@@ -125,7 +125,21 @@ The global dynamic response of the system was evaluated by comparing the 2D RANS
 * **Amplitude Branches:** During the ascending sweep, the simulations successfully matched the initial branch and the transition to the high-amplitude upper branch. The transition to the lower branch occurred at a slightly lower velocity than observed in the experimental reference.
 
 
-* **Figure-Eight Trajectories:** The cylinder's orbital paths in the $x$-$y$ plane evolved as expected, forming classic figure-eight shapes. In the upper branch, the trajectories displayed significant transverse extension and longitudinal curvature. After dropping to the lower branch, these orbits became notably narrower.
+* **Figure-Eight Trajectories:** The cylinder's orbital paths in the $x$-$y$ plane evolved as expected, forming classic figure-eight shapes. In the upper branch, the trajectories displayed significant transverse extension and longitudinal curvature. After dropping to the lower branch, these orbits became notably narrower. To visualize this continuous evolution, the embedded animation tracks the cylinder's center point across the entire velocity sweep, illustrating the dynamic shift in the Lissajous curves as the system transitions between amplitude branches.
+
+
+<div class="video-container">
+  <iframe 
+    width="100%" 
+    height="450" 
+    src="https://youtu.be/cxheNCCwrf4" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+</div>
+
 
 
 * **Solver Consistency:** Both the Arbitrary Lagrangian-Eulerian and the Overset mesh strategies yielded equivalent results for the evaluated amplitudes, validating the coherence between the two numerical approaches.
