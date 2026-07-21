@@ -57,6 +57,42 @@ Volumetric representation of the vortex shedding using the $\lambda_{ci}$ criter
 :::
 
 
+### Comparison of Mesh Motion Strategies
+
+To visualize the fundamental differences between the two spatial updating techniques, the following animations show both methods solving the same dynamic response. 
+
+The **ALE** method accommodates the cylinder's displacement through internal mesh deformation (morphing). An inner region near the wall moves rigidly, while the intermediate cells absorb the distortion. Conversely, the **Overset** method completely avoids geometric distortion. It maintains perfect cell orthogonality by sliding a rigid component mesh containing the cylinder over a static background domain.
+
+::: {layout-ncol=2}
+
+::: {#fig-mesh-ale}
+```{=html}
+<video width="100%" height="auto" autoplay loop muted playsinline>
+  <source src="images/ALE_close1.mp4" type="video/mp4">
+</video>
+
+```
+
+**Arbitrary Lagrangian-Eulerian (ALE):** Mesh morphing where internal vertices relocate to accommodate the boundary movement.
+:::
+
+::: {#fig-mesh-overset}
+
+```{=html}
+<video width="100%" height="auto" autoplay loop muted playsinline>
+  <source src="images/overset1.mp4" type="video/mp4">
+</video>
+
+```
+
+**Overset (Chimera):** A rigid foreground component mesh translating over an independent background mesh.
+:::
+
+:::
+
+
+
+
 
 ### Capturing Path-Dependent Hysteresis
 
@@ -121,7 +157,7 @@ To explore a more complex structural response, geometric nonlinearities were int
 
 
 ::: {layout-ncol=1}
-![Figure 5: Nonlinear system response for the 2D RANS simulations (mesh deformation). Top: Dimensionless transverse amplitude $A_y/D$ as a function of $U_r$. Bottom: Transverse oscillation frequency $f_y$ over the natural frequency of the system $f_n$ as a function of $U_r$. Both figures also show the experimental results from Jauvtis and Williamson for a linear system.  ](images/fig9.png){group="none1"}
+![Figure 5: Nonlinear system response for the 2D RANS simulations (mesh deformation). Top: Dimensionless transverse amplitude $A_y/D$ as a function of $U_r$. Bottom: Transverse oscillation frequency $f_y$ over the natural frequency of the system $f_n$ as a function of $U_r$. Both figures also show the experimental results from Jauvtis and Williamson for a linear system.  ](images/fig9.png){group="none1" width="70%"}
 :::
 
 ::: {layout-ncol=1}

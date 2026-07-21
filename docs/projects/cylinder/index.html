@@ -160,6 +160,7 @@ window.Quarto = {
   <li><a href="#vortex-induced-vibrations-on-a-cylinder-with-two-degrees-of-freedom" id="toc-vortex-induced-vibrations-on-a-cylinder-with-two-degrees-of-freedom" class="nav-link" data-scroll-target="#vortex-induced-vibrations-on-a-cylinder-with-two-degrees-of-freedom">Vortex induced vibrations on a cylinder with two-degrees of freedom</a>
   <ul class="collapse">
   <li><a href="#numerical-modeling" id="toc-numerical-modeling" class="nav-link" data-scroll-target="#numerical-modeling">Numerical Modeling</a></li>
+  <li><a href="#comparison-of-mesh-motion-strategies" id="toc-comparison-of-mesh-motion-strategies" class="nav-link" data-scroll-target="#comparison-of-mesh-motion-strategies">Comparison of Mesh Motion Strategies</a></li>
   <li><a href="#capturing-path-dependent-hysteresis" id="toc-capturing-path-dependent-hysteresis" class="nav-link" data-scroll-target="#capturing-path-dependent-hysteresis">Capturing Path-Dependent Hysteresis</a></li>
   <li><a href="#results-for-the-linear-system" id="toc-results-for-the-linear-system" class="nav-link" data-scroll-target="#results-for-the-linear-system">Results for the Linear System</a></li>
   <li><a href="#the-impact-of-geometric-nonlinearity" id="toc-the-impact-of-geometric-nonlinearity" class="nav-link" data-scroll-target="#the-impact-of-geometric-nonlinearity">The Impact of Geometric Nonlinearity</a></li>
@@ -235,6 +236,45 @@ Figure&nbsp;1: Volumetric representation of the vortex shedding using the <span 
 </div>
 </section>
 </section>
+<section id="comparison-of-mesh-motion-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-of-mesh-motion-strategies">Comparison of Mesh Motion Strategies</h3>
+<p>To visualize the fundamental differences between the two spatial updating techniques, the following animations show both methods solving the same dynamic response.</p>
+<p>The <strong>ALE</strong> method accommodates the cylinder’s displacement through internal mesh deformation (morphing). An inner region near the wall moves rigidly, while the intermediate cells absorb the distortion. Conversely, the <strong>Overset</strong> method completely avoids geometric distortion. It maintains perfect cell orthogonality by sliding a rigid component mesh containing the cylinder over a static background domain.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-mesh-ale" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mesh-ale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<video width="100%" height="auto" autoplay="" loop="" muted="" playsinline="">
+  <source src="images/ALE_close1.mp4" type="video/mp4">
+</video>
+
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mesh-ale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: <strong>Arbitrary Lagrangian-Eulerian (ALE):</strong> Mesh morphing where internal vertices relocate to accommodate the boundary movement.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-mesh-overset" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mesh-overset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<video width="100%" height="auto" autoplay="" loop="" muted="" playsinline="">
+  <source src="images/overset1.mp4" type="video/mp4">
+</video>
+
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mesh-overset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: <strong>Overset (Chimera):</strong> A rigid foreground component mesh translating over an independent background mesh.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="capturing-path-dependent-hysteresis" class="level3">
 <h3 class="anchored" data-anchor-id="capturing-path-dependent-hysteresis">Capturing Path-Dependent Hysteresis</h3>
 <p>To accurately model the hysteresis effect reported in the literature, the reduced velocity (<span class="math inline">\(U_r\)</span>) was varied using an incremental stepped ramp.</p>
@@ -305,7 +345,7 @@ Figure&nbsp;1: Volumetric representation of the vortex shedding using the <span 
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/fig9.png" class="lightbox" data-gallery="none1" title="Figure 5: Nonlinear system response for the 2D RANS simulations (mesh deformation). Top: Dimensionless transverse amplitude A_y/D as a function of U_r. Bottom: Transverse oscillation frequency f_y over the natural frequency of the system f_n as a function of U_r. Both figures also show the experimental results from Jauvtis and Williamson for a linear system."><img src="images/fig9.png" class="img-fluid figure-img" alt="Figure 5: Nonlinear system response for the 2D RANS simulations (mesh deformation). Top: Dimensionless transverse amplitude A_y/D as a function of U_r. Bottom: Transverse oscillation frequency f_y over the natural frequency of the system f_n as a function of U_r. Both figures also show the experimental results from Jauvtis and Williamson for a linear system."></a></p>
+<p><a href="images/fig9.png" class="lightbox" data-gallery="none1" title="Figure 5: Nonlinear system response for the 2D RANS simulations (mesh deformation). Top: Dimensionless transverse amplitude A_y/D as a function of U_r. Bottom: Transverse oscillation frequency f_y over the natural frequency of the system f_n as a function of U_r. Both figures also show the experimental results from Jauvtis and Williamson for a linear system."><img src="images/fig9.png" class="img-fluid figure-img" style="width:70.0%" alt="Figure 5: Nonlinear system response for the 2D RANS simulations (mesh deformation). Top: Dimensionless transverse amplitude A_y/D as a function of U_r. Bottom: Transverse oscillation frequency f_y over the natural frequency of the system f_n as a function of U_r. Both figures also show the experimental results from Jauvtis and Williamson for a linear system."></a></p>
 <figcaption>Figure 5: Nonlinear system response for the 2D RANS simulations (mesh deformation). Top: Dimensionless transverse amplitude <span class="math inline">\(A_y/D\)</span> as a function of <span class="math inline">\(U_r\)</span>. Bottom: Transverse oscillation frequency <span class="math inline">\(f_y\)</span> over the natural frequency of the system <span class="math inline">\(f_n\)</span> as a function of <span class="math inline">\(U_r\)</span>. Both figures also show the experimental results from Jauvtis and Williamson for a linear system.</figcaption>
 </figure>
 </div>
