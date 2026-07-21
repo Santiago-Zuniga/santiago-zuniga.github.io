@@ -1,3 +1,9 @@
+---
+title: "Vortex-induced vibration of circular cylinder"
+subtitle: "Simulation of vortex-induced vibration of circular cylinder with two-degree-of-freedom in OpenFOAM"
+date: "2026-02-18"
+---
+
 ## Periodic vortex shedding and the von Kármán vortex street
 
 When a fluid encounters a bluff body, such as a cylinder, it cannot follow the sharp curvature of the surface. This leads to boundary layer separation, where the flow detaches and forms two distinct shear layers. At low Reynolds numbers, these layers remain stable, but as the velocity increases, they begin to interact and roll up into discrete, concentrated vortices.
@@ -55,86 +61,6 @@ To handle the domain deformation, two distinct methods were evaluated, with the 
 Volumetric representation of the vortex shedding using the $\lambda_{ci}$ criterion, for an LES simulation at $U_r=6$.
 
 :::
-
-
-
-### Capturing Path-Dependent Hysteresis
-
-To accurately model the hysteresis effect reported in the literature, the reduced velocity ($U_r$) was varied using an incremental stepped ramp.
-
-* The velocity was increased in discrete steps.
-
-
-* Stabilization periods were included at each step to allow the fluid-structure system to reach a steady state.
-
-
-* This sweep was performed to capture the ascending branch for a reduced velocity range between 2 and 12.
-
-
-* The procedure was subsequently reversed, gradually decreasing the velocity to evaluate the descending branch of the system.
-
-
-
-::: {layout-ncol=1}
-![Figure 2: Reduced velocity $U_r$ as a function of time, for the 2D RANS simulations.](images/fig4.png){group="none1"}
-:::
-
-### Results for the Linear System
-
-The global dynamic response of the system was evaluated by comparing the 2D RANS and 3D LES simulations against established experimental data. The numerical models successfully captured the critical stages of the vortex-induced vibrations.
-
-* **Lock-in and Synchronization:** The simulations accurately reproduced the lock-in region, where the system's oscillation frequency synchronizes with its natural frequency despite the increasing fluid velocity.
-
-
-* **Amplitude Branches:** During the ascending sweep, the simulations successfully matched the initial branch and the transition to the high-amplitude upper branch. The transition to the lower branch occurred at a slightly lower velocity than observed in the experimental reference.
-
-
-* **Figure-Eight Trajectories:** The cylinder's orbital paths in the $x$-$y$ plane evolved as expected, forming classic figure-eight shapes. In the upper branch, the trajectories displayed significant transverse extension and longitudinal curvature. After dropping to the lower branch, these orbits became notably narrower.
-
-
-* **Solver Consistency:** Both the Arbitrary Lagrangian-Eulerian and the Overset mesh strategies yielded equivalent results for the evaluated amplitudes, validating the coherence between the two numerical approaches.
-
-
-::: {layout-ncol=1}
-![Figure 3: Linear system response for the 2D RANS (mesh deformation and overset meshes) and 3D LES simulations. Top: Dimensionless transverse amplitude $A_y/D$ as a function of $U_r$. Trajectories (Lissajous curves) for selected velocities are also shown, scaled to each other. Bottom: Transverse oscillation frequency $f_y$ over the natural frequency of the system $f_n$ as a function of $U_r$. Both figures also show the experimental results from Jauvtis and Williamson.](images/fig7.png){group="none1"}
-:::
-
-::: {layout-ncol=1}
-![Figure 4: Top: Time history of the transverse oscillation $y/D$ of the linear system during the ascending velocity sweep (2D RANS simulation with deformable mesh). Bottom: Evolution of the cylinder orbits in the $x$-$y$ plane. The total simulation time was divided into five intervals, coinciding with the time scale of the top graph, to illustrate the change in shape and amplitude of the trajectories across the different response regimes. ](images/fig8.png){group="none1"}
-:::
-
-
-### The Impact of Geometric Nonlinearity
-
-To explore a more complex structural response, geometric nonlinearities were introduced to the stiffness model, setting the nonlinear coefficients for both axes to 0.7. This modification significantly altered the response branches and the interaction between the transverse and longitudinal degrees of freedom.
-
-* **Altered Amplitude Profiles:** The nonlinear system exhibited a lower maximum amplitude in the upper branch compared to the linear configuration.
-
-
-* **Extended Synchronization:** The high-amplitude oscillations persisted over a much wider range of velocities.
-
-
-* **Delayed Transition:** The abrupt drop in amplitude toward the lower branch was delayed until $U_r$ reached 9, whereas the linear system transitioned much earlier.
-
-
-* **Increased Stiffness:** This delayed transition is attributed to the system's stiffness increasing proportionally as the oscillation amplitude grows.
-
-
-::: {layout-ncol=1}
-![Figure 5: Nonlinear system response for the 2D RANS simulations (mesh deformation). Top: Dimensionless transverse amplitude $A_y/D$ as a function of $U_r$. Bottom: Transverse oscillation frequency $f_y$ over the natural frequency of the system $f_n$ as a function of $U_r$. Both figures also show the experimental results from Jauvtis and Williamson for a linear system.  ](images/fig9.png){group="none1"}
-:::
-
-::: {layout-ncol=1}
-![Figure 6: Top: Time history of the transverse oscillation $y/D$ of the nonlinear system during the ascending velocity sweep (2D RANS simulation with deformable mesh). Bottom: Evolution of the cylinder orbits in the $x$-$y$ plane. The total simulation time was divided into five intervals, coinciding with the time scale of the top graph, to illustrate the change in shape and amplitude of the trajectories across the different response regimes.](images/fig10.png){group="none1"}
-:::
-
-
-
-### Conclusion
-
-The simulations verified the robustness of OpenFOAM's dynamic mesh tools for modeling strongly coupled fluid-structure interaction problems. Both mesh deformation and overset methods proved viable and consistent, successfully capturing complex phenomena like hysteresis, trajectory shifts, and the extended synchronization caused by nonlinear stiffness.
-
-
 
 ***
 
