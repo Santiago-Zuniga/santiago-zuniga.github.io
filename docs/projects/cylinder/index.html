@@ -164,6 +164,9 @@ window.Quarto = {
   <li><a href="#capturing-path-dependent-hysteresis" id="toc-capturing-path-dependent-hysteresis" class="nav-link" data-scroll-target="#capturing-path-dependent-hysteresis">Capturing Path-Dependent Hysteresis</a></li>
   <li><a href="#results-for-the-linear-system" id="toc-results-for-the-linear-system" class="nav-link" data-scroll-target="#results-for-the-linear-system">Results for the Linear System</a></li>
   <li><a href="#the-impact-of-geometric-nonlinearity" id="toc-the-impact-of-geometric-nonlinearity" class="nav-link" data-scroll-target="#the-impact-of-geometric-nonlinearity">The Impact of Geometric Nonlinearity</a></li>
+  </ul></li>
+  <li><a href="#viv-suppression-implementation-of-helicoidal-strakes" id="toc-viv-suppression-implementation-of-helicoidal-strakes" class="nav-link" data-scroll-target="#viv-suppression-implementation-of-helicoidal-strakes">VIV Suppression: Implementation of Helicoidal Strakes</a>
+  <ul class="collapse">
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -370,6 +373,41 @@ Figure&nbsp;3: <strong>Overset (Chimera):</strong> A rigid foreground component 
 </div>
 </div>
 </section>
+</section>
+<section id="viv-suppression-implementation-of-helicoidal-strakes" class="level2">
+<h2 class="anchored" data-anchor-id="viv-suppression-implementation-of-helicoidal-strakes">VIV Suppression: Implementation of Helicoidal Strakes</h2>
+<p>To mitigate the detrimental effects of Vortex-Induced Vibrations, passive flow control devices are often employed in offshore and structural engineering. Inspired by the experimental and numerical investigations by Korkischko &amp; Meneghini (2010), a new simulation was configured to evaluate the effectiveness of helicoidal strakes in suppressing these self-sustaining oscillations.</p>
+<p>The modified geometry consists of a cylinder fitted with three helicoidal strakes arranged at 120-degree intervals. Strakes function by breaking the spanwise correlation of the vortex shedding. Instead of forming a strong, synchronized von Kármán vortex street, the fluid separates at varying phases along the span of the cylinder. This three-dimensional flow disruption prevents the vortices from shedding uniformly along the length of the body, which significantly reduces the net fluctuating lift forces acting on the structure.</p>
+<div id="fig-helix-geometry" class="quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-helix-geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/helix.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees."><img src="images/helix.png" class="img-fluid figure-img"></a></p>
+<figcaption>Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees.</figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-helix-geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4
+</figcaption>
+</figure>
+</div>
+<p>To visually demonstrate the suppression effect, the side-by-side animation below compares the bare cylinder (left) with the straked cylinder (right), both operating at the exact same reduced velocity (<span class="math inline">\(U_r = 6\)</span>).</p>
+<p>For the bare cylinder, this velocity falls directly within the upper branch of the synchronization region, resulting in large-amplitude figure-eight movements. In contrast, the cylinder equipped with strakes shows a drastic reduction in transverse and longitudinal oscillation amplitude, fully validating the suppression capabilities of this passive control strategy.</p>
+<div id="fig-helix-comparison" class="quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-helix-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<video width="100%" height="auto" autoplay="" loop="" muted="" playsinline="">
+  <source src="images/HELIX.mp4" type="video/mp4">
+</video>
+
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-helix-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Comparison of the dynamic response at <span class="math inline">\(U_r=6\)</span>. Left: Bare cylinder exhibiting high-amplitude oscillations. Right: Cylinder with helicoidal strakes showing a clear suppression of the VIV response.
+</figcaption>
+</figure>
+</div>
 <section id="conclusion" class="level3">
 <h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
 <p>The simulations verified the robustness of OpenFOAM’s dynamic mesh tools for modeling strongly coupled fluid-structure interaction problems. Both mesh deformation and overset methods proved viable and consistent, successfully capturing complex phenomena like hysteresis, trajectory shifts, and the extended synchronization caused by nonlinear stiffness.</p>

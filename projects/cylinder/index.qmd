@@ -180,6 +180,36 @@ To explore a more complex structural response, geometric nonlinearities were int
 
 
 
+## VIV Suppression: Implementation of Helicoidal Strakes
+
+To mitigate the detrimental effects of Vortex-Induced Vibrations, passive flow control devices are often employed in offshore and structural engineering. Inspired by the experimental and numerical investigations by Korkischko & Meneghini (2010), a new simulation was configured to evaluate the effectiveness of helicoidal strakes in suppressing these self-sustaining oscillations.
+
+The modified geometry consists of a cylinder fitted with three helicoidal strakes arranged at 120-degree intervals. Strakes function by breaking the spanwise correlation of the vortex shedding. Instead of forming a strong, synchronized von Kármán vortex street, the fluid separates at varying phases along the span of the cylinder. This three-dimensional flow disruption prevents the vortices from shedding uniformly along the length of the body, which significantly reduces the net fluctuating lift forces acting on the structure.
+
+::: {#fig-helix-geometry layout-align="center"}
+![Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees.](images/helix.png)
+:::
+
+To visually demonstrate the suppression effect, the side-by-side animation below compares the bare cylinder (left) with the straked cylinder (right), both operating at the exact same reduced velocity ($U_r = 6$). 
+
+For the bare cylinder, this velocity falls directly within the upper branch of the synchronization region, resulting in large-amplitude figure-eight movements. In contrast, the cylinder equipped with strakes shows a drastic reduction in transverse and longitudinal oscillation amplitude, fully validating the suppression capabilities of this passive control strategy.
+
+::: {#fig-helix-comparison layout-align="center"}
+```{=html}
+<video width="100%" height="auto" autoplay loop muted playsinline>
+  <source src="images/HELIX.mp4" type="video/mp4">
+</video>
+
+```
+
+Comparison of the dynamic response at $U_r=6$. Left: Bare cylinder exhibiting high-amplitude oscillations. Right: Cylinder with helicoidal strakes showing a clear suppression of the VIV response.
+:::
+
+
+
+
+
+
 ### Conclusion
 
 The simulations verified the robustness of OpenFOAM's dynamic mesh tools for modeling strongly coupled fluid-structure interaction problems. Both mesh deformation and overset methods proved viable and consistent, successfully capturing complex phenomena like hysteresis, trajectory shifts, and the extended synchronization caused by nonlinear stiffness.
