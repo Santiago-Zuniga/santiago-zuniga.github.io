@@ -132,7 +132,7 @@ The global dynamic response of the system was evaluated by comparing the 2D RANS
   <iframe 
     width="100%" 
     height="450" 
-    src="https://youtu.be/cxheNCCwrf4" 
+    src="https://www.youtube.com/embed/cxheNCCwrf4" 
     title="YouTube video player" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
