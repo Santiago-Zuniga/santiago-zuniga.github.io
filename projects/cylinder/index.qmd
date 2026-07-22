@@ -182,13 +182,15 @@ To explore a more complex structural response, geometric nonlinearities were int
 
 ## VIV Suppression: Implementation of Helicoidal Strakes
 
-To mitigate the detrimental effects of Vortex-Induced Vibrations, passive flow control devices are often employed in offshore and structural engineering. Inspired by the experimental and numerical investigations by Korkischko & Meneghini (2010), a new simulation was configured to evaluate the effectiveness of helicoidal strakes in suppressing these self-sustaining oscillations.
+To mitigate the detrimental effects of Vortex-Induced Vibrations, passive flow control devices are often employed in offshore and structural engineering. The configuration for this new simulation was taken from the studies by Korkischko & Meneghini (2010) to evaluate the effectiveness of helicoidal strakes in suppressing these self-sustaining oscillations.
 
 The modified geometry consists of a cylinder fitted with three helicoidal strakes arranged at 120-degree intervals. Strakes function by breaking the spanwise correlation of the vortex shedding. Instead of forming a strong, synchronized von Kármán vortex street, the fluid separates at varying phases along the span of the cylinder. This three-dimensional flow disruption prevents the vortices from shedding uniformly along the length of the body, which significantly reduces the net fluctuating lift forces acting on the structure.
 
-::: {#fig-helix-geometry layout-align="center"}
-![Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees.](images/helix.png)
+
+::: {layout-ncol=1}
+![Figure 7: Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees.](images/helix.png){group="none1" width="50%"}
 :::
+
 
 To visually demonstrate the suppression effect, the side-by-side animation below compares the bare cylinder (left) with the straked cylinder (right), both operating at the exact same reduced velocity ($U_r = 6$). 
 
@@ -212,21 +214,37 @@ Comparison of the dynamic response at $U_r=6$. Left: Bare cylinder exhibiting hi
 
 ### Conclusion
 
-The simulations verified the robustness of OpenFOAM's dynamic mesh tools for modeling strongly coupled fluid-structure interaction problems. Both mesh deformation and overset methods proved viable and consistent, successfully capturing complex phenomena like hysteresis, trajectory shifts, and the extended synchronization caused by nonlinear stiffness.
-
-
-
+This study demonstrates the capability of OpenFOAM to accurately resolve strongly coupled fluid-structure interaction problems. By comparing dynamic mesh morphing (ALE) and overset (Chimera) techniques, the numerical models successfully captured the intricate dynamics of vortex-induced vibrations, including lock-in, path-dependent hysteresis, and the characteristic figure-eight trajectories. The simulations proved robust enough to handle the added complexity of geometric nonlinearities, accurately predicting the extended synchronization regime and the delayed transition between response branches. Finally, the successful implementation of helicoidal strakes highlighted the practical engineering value of this CFD framework, proving it to be a reliable tool for designing and evaluating passive flow control devices.
 ***
 
 ## References
 
-Jauvtis, N., & Williamson, C. H. K. (2003). The effect of two degrees of freedom on vortex-induced vibration at low mass and damping. *Journal of Fluid Mechanics*, 480, 37–63.
+Jauvtis, N., & Williamson, C. H. K. (2003). The effect of two degrees of freedom on vortex-induced vibration at low mass and damping. *Journal of Fluid Mechanics*.
 
-***
+Korkischko, I., & Meneghini, J. R. (2010). Experimental investigation of flow-induced vibration on isolated and tandem circular cylinders fitted with strakes. *Journal of Fluids and Structures*.
+
+
+---
 
 ::: {.column-screen style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;"}
+
+### Behind the Simulation
+
+This project explores the delicate balance between fluid mechanics and structural dynamics. It serves as a rigorous test of advanced mesh motion algorithms and custom solver integration within a fluid-structure interaction (FSI) environment.
+
+::: {.footer-list-container}
+The workflow involved a comprehensive FSI simulation pipeline:
+
+* **Preprocessing:** Defining the physical parameters to match experimental low-mass ratios and designing the 3D geometry for the helicoidal strakes.
+* **Meshing:** Generating structured O-grids using `blockMesh` for the morphing approach, and assembling complex background and foreground grids for the overset method.
+* **Solving:** Executing dynamic mesh simulations in **OpenFOAM** (comparing 2D RANS with 3D LES) and developing a custom C++ library to implement the geometric nonlinearities in the structural restoration forces.
+* **Post-processing:** Utilizing **ParaView** and **Python** to visualize volumetric vortex shedding, track the cylinder's temporal displacement, and animate the continuous velocity sweeps.
+* **Analysis:** Extracting frequency responses and oscillation amplitudes to map the bistable hysteresis branches and validate the effectiveness of passive suppression techniques.
+:::
 
 Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let's connect!
 
 {{< iconify tabler brand-linkedin >}} [LinkedIn](https://www.linkedin.com/in/zunigasantiago/) | {{< iconify tabler mail >}} [Email Me](mailto:santiago.zuniga@ib.edu.ar)
+
 :::
+

@@ -169,7 +169,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a>
+  <ul class="collapse">
+  <li><a href="#behind-the-simulation" id="toc-behind-the-simulation" class="nav-link" data-scroll-target="#behind-the-simulation">Behind the Simulation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -376,22 +379,19 @@ Figure&nbsp;3: <strong>Overset (Chimera):</strong> A rigid foreground component 
 </section>
 <section id="viv-suppression-implementation-of-helicoidal-strakes" class="level2">
 <h2 class="anchored" data-anchor-id="viv-suppression-implementation-of-helicoidal-strakes">VIV Suppression: Implementation of Helicoidal Strakes</h2>
-<p>To mitigate the detrimental effects of Vortex-Induced Vibrations, passive flow control devices are often employed in offshore and structural engineering. Inspired by the experimental and numerical investigations by Korkischko &amp; Meneghini (2010), a new simulation was configured to evaluate the effectiveness of helicoidal strakes in suppressing these self-sustaining oscillations.</p>
+<p>To mitigate the detrimental effects of Vortex-Induced Vibrations, passive flow control devices are often employed in offshore and structural engineering. The configuration for this new simulation was taken from the studies by Korkischko &amp; Meneghini (2010) to evaluate the effectiveness of helicoidal strakes in suppressing these self-sustaining oscillations.</p>
 <p>The modified geometry consists of a cylinder fitted with three helicoidal strakes arranged at 120-degree intervals. Strakes function by breaking the spanwise correlation of the vortex shedding. Instead of forming a strong, synchronized von Kármán vortex street, the fluid separates at varying phases along the span of the cylinder. This three-dimensional flow disruption prevents the vortices from shedding uniformly along the length of the body, which significantly reduces the net fluctuating lift forces acting on the structure.</p>
-<div id="fig-helix-geometry" class="quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-helix-geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-panel" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/helix.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees."><img src="images/helix.png" class="img-fluid figure-img"></a></p>
-<figcaption>Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees.</figcaption>
+<p><a href="images/helix.png" class="lightbox" data-gallery="none1" title="Figure 7: Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees."><img src="images/helix.png" class="img-fluid figure-img" style="width:50.0%" alt="Figure 7: Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees."></a></p>
+<figcaption>Figure 7: Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees.</figcaption>
 </figure>
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-helix-geometry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4
-</figcaption>
-</figure>
+</div>
 </div>
 <p>To visually demonstrate the suppression effect, the side-by-side animation below compares the bare cylinder (left) with the straked cylinder (right), both operating at the exact same reduced velocity (<span class="math inline">\(U_r = 6\)</span>).</p>
 <p>For the bare cylinder, this velocity falls directly within the upper branch of the synchronization region, resulting in large-amplitude figure-eight movements. In contrast, the cylinder equipped with strakes shows a drastic reduction in transverse and longitudinal oscillation amplitude, fully validating the suppression capabilities of this passive control strategy.</p>
@@ -404,24 +404,36 @@ Figure&nbsp;4
 
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-helix-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: Comparison of the dynamic response at <span class="math inline">\(U_r=6\)</span>. Left: Bare cylinder exhibiting high-amplitude oscillations. Right: Cylinder with helicoidal strakes showing a clear suppression of the VIV response.
+Figure&nbsp;4: Comparison of the dynamic response at <span class="math inline">\(U_r=6\)</span>. Left: Bare cylinder exhibiting high-amplitude oscillations. Right: Cylinder with helicoidal strakes showing a clear suppression of the VIV response.
 </figcaption>
 </figure>
 </div>
 <section id="conclusion" class="level3">
 <h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
-<p>The simulations verified the robustness of OpenFOAM’s dynamic mesh tools for modeling strongly coupled fluid-structure interaction problems. Both mesh deformation and overset methods proved viable and consistent, successfully capturing complex phenomena like hysteresis, trajectory shifts, and the extended synchronization caused by nonlinear stiffness.</p>
-<hr>
+<p>This study demonstrates the capability of OpenFOAM to accurately resolve strongly coupled fluid-structure interaction problems. By comparing dynamic mesh morphing (ALE) and overset (Chimera) techniques, the numerical models successfully captured the intricate dynamics of vortex-induced vibrations, including lock-in, path-dependent hysteresis, and the characteristic figure-eight trajectories. The simulations proved robust enough to handle the added complexity of geometric nonlinearities, accurately predicting the extended synchronization regime and the delayed transition between response branches. Finally, the successful implementation of helicoidal strakes highlighted the practical engineering value of this CFD framework, proving it to be a reliable tool for designing and evaluating passive flow control devices. ***</p>
 </section>
 </section>
 <section id="references" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<p>Jauvtis, N., &amp; Williamson, C. H. K. (2003). The effect of two degrees of freedom on vortex-induced vibration at low mass and damping. <em>Journal of Fluid Mechanics</em>, 480, 37–63.</p>
+<p>Jauvtis, N., &amp; Williamson, C. H. K. (2003). The effect of two degrees of freedom on vortex-induced vibration at low mass and damping. <em>Journal of Fluid Mechanics</em>.</p>
+<p>Korkischko, I., &amp; Meneghini, J. R. (2010). Experimental investigation of flow-induced vibration on isolated and tandem circular cylinders fitted with strakes. <em>Journal of Fluids and Structures</em>.</p>
 <hr>
-<div class="column-screen" style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;">
+<section id="behind-the-simulation" class="level3 column-screen" style="text-align: center; padding: 40px 20px; background-color: #eee8d5; border-top: 1px solid #d3af37; margin-top: 80px;">
+<h3 class="anchored" data-anchor-id="behind-the-simulation">Behind the Simulation</h3>
+<p>This project explores the delicate balance between fluid mechanics and structural dynamics. It serves as a rigorous test of advanced mesh motion algorithms and custom solver integration within a fluid-structure interaction (FSI) environment.</p>
+<div class="footer-list-container">
+<p>The workflow involved a comprehensive FSI simulation pipeline:</p>
+<ul>
+<li><strong>Preprocessing:</strong> Defining the physical parameters to match experimental low-mass ratios and designing the 3D geometry for the helicoidal strakes.</li>
+<li><strong>Meshing:</strong> Generating structured O-grids using <code>blockMesh</code> for the morphing approach, and assembling complex background and foreground grids for the overset method.</li>
+<li><strong>Solving:</strong> Executing dynamic mesh simulations in <strong>OpenFOAM</strong> (comparing 2D RANS with 3D LES) and developing a custom C++ library to implement the geometric nonlinearities in the structural restoration forces.</li>
+<li><strong>Post-processing:</strong> Utilizing <strong>ParaView</strong> and <strong>Python</strong> to visualize volumetric vortex shedding, track the cylinder’s temporal displacement, and animate the continuous velocity sweeps.</li>
+<li><strong>Analysis:</strong> Extracting frequency responses and oscillation amplitudes to map the bistable hysteresis branches and validate the effectiveness of passive suppression techniques.</li>
+</ul>
+</div>
 <p>Think this is cool? I am always looking for interesting fluid dynamics problems to solve. Let’s connect!</p>
 <p><iconify-icon role="img" inline="" icon="tabler:brand-linkedin" aria-label="Icon brand-linkedin from tabler Iconify.design set." title="Icon brand-linkedin from tabler Iconify.design set."></iconify-icon> <a href="https://www.linkedin.com/in/zunigasantiago/">LinkedIn</a> | <iconify-icon role="img" inline="" icon="tabler:mail" aria-label="Icon mail from tabler Iconify.design set." title="Icon mail from tabler Iconify.design set."></iconify-icon> <a href="mailto:santiago.zuniga@ib.edu.ar">Email Me</a></p>
-</div>
+</section>
 
 
 </section>
