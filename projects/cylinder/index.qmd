@@ -6,7 +6,7 @@ Crucially, these vortices do not shed simultaneously. Instead, they detach in an
 $f_s=\frac{St \cdot U}{D}$ where $U$ is the flow velocity and $D$ is the cylinder diameter.
 
 ::: {layout-ncol=1}
-![Figure 1: Vortex shedding behind Alexander Selkirk Island in the southern Pacific Ocean, from [NASA](https://science.nasa.gov/earth/earth-observatory/von-karman-vortices-2613/).](images/landsat_art_karman.jpg){group="none1"}
+![Vortex shedding behind Alexander Selkirk Island in the southern Pacific Ocean, from [NASA](https://science.nasa.gov/earth/earth-observatory/von-karman-vortices-2613/).](images/landsat_art_karman.jpg){group="none1" #fig-example}
 :::
 
 While this is a fundamental problem in fluid mechanics, we encounter its effects daily. A common example is the high-pitched whistling or humming produced by a car antenna at highway speeds. This sound is the acoustic signature of vortex shedding; as the air flows past the thin rod, the alternating vortices create pressure fluctuations that vibrate the air. This happens because as a vortex is "born" on one side of the cylinder, it creates a local region of high-velocity, low-pressure fluid. This generates a net lift force that pulls the cylinder toward the vortex. As the next vortex sheds from the opposite side, the pressure drop shifts, and the lift force reverses direction.
@@ -112,7 +112,7 @@ To accurately model the hysteresis effect reported in the literature, the reduce
 
 
 ::: {layout-ncol=1}
-![Figure 2: Reduced velocity $U_r$ as a function of time, for the 2D RANS simulations.](images/fig4.png){group="none1" width="50%"}
+![Reduced velocity $U_r$ as a function of time, for the 2D RANS simulations.](images/fig4.png){#fig-Ur group="none1" width="50%"}
 :::
 
 ### Results for the Linear System
@@ -146,11 +146,11 @@ The global dynamic response of the system was evaluated by comparing the 2D RANS
 
 
 ::: {layout-ncol=1}
-![Figure 3: Linear system response for the 2D RANS (mesh deformation and overset meshes) and 3D LES simulations. Top: Dimensionless transverse amplitude $A_y/D$ as a function of $U_r$. Trajectories (Lissajous curves) for selected velocities are also shown, scaled to each other. Bottom: Transverse oscillation frequency $f_y$ over the natural frequency of the system $f_n$ as a function of $U_r$. Both figures also show the experimental results from Jauvtis and Williamson.](images/fig7.png){group="none1" width="70%"}
+![Linear system response for the 2D RANS (mesh deformation and overset meshes) and 3D LES simulations. Top: Dimensionless transverse amplitude $A_y/D$ as a function of $U_r$. Trajectories (Lissajous curves) for selected velocities are also shown, scaled to each other. Bottom: Transverse oscillation frequency $f_y$ over the natural frequency of the system $f_n$ as a function of $U_r$. Both figures also show the experimental results from Jauvtis and Williamson.](images/fig7.png){#fig-response-linear group="none1" width="70%"}
 :::
 
 ::: {layout-ncol=1}
-![Figure 4: Top: Time history of the transverse oscillation $y/D$ of the linear system during the ascending velocity sweep (2D RANS simulation with deformable mesh). Bottom: Evolution of the cylinder orbits in the $x$-$y$ plane. The total simulation time was divided into five intervals, coinciding with the time scale of the top graph, to illustrate the change in shape and amplitude of the trajectories across the different response regimes. ](images/fig8b.png){group="none1"}
+![Top: Time history of the transverse oscillation $y/D$ of the linear system during the ascending velocity sweep (2D RANS simulation with deformable mesh). Bottom: Evolution of the cylinder orbits in the $x$-$y$ plane. The total simulation time was divided into five intervals, coinciding with the time scale of the top graph, to illustrate the change in shape and amplitude of the trajectories across the different response regimes. ](images/fig8b.png){#fig-linear-time group="none1"}
 :::
 
 
@@ -171,30 +171,30 @@ To explore a more complex structural response, geometric nonlinearities were int
 
 
 ::: {layout-ncol=1}
-![Figure 5: Nonlinear system response for the 2D RANS simulations (mesh deformation). Top: Dimensionless transverse amplitude $A_y/D$ as a function of $U_r$. Bottom: Transverse oscillation frequency $f_y$ over the natural frequency of the system $f_n$ as a function of $U_r$. Both figures also show the experimental results from Jauvtis and Williamson for a linear system.  ](images/fig9.png){group="none1" width="70%"}
+![Nonlinear system response for the 2D RANS simulations (mesh deformation). Top: Dimensionless transverse amplitude $A_y/D$ as a function of $U_r$. Bottom: Transverse oscillation frequency $f_y$ over the natural frequency of the system $f_n$ as a function of $U_r$. Both figures also show the experimental results from Jauvtis and Williamson for a linear system.  ](images/fig9.png){#fig-nonlinear-response group="none1" width="70%"}
 :::
 
 ::: {layout-ncol=1}
-![Figure 6: Top: Time history of the transverse oscillation $y/D$ of the nonlinear system during the ascending velocity sweep (2D RANS simulation with deformable mesh). Bottom: Evolution of the cylinder orbits in the $x$-$y$ plane. The total simulation time was divided into five intervals, coinciding with the time scale of the top graph, to illustrate the change in shape and amplitude of the trajectories across the different response regimes.](images/fig10b.png){group="none1"}
+![Top: Time history of the transverse oscillation $y/D$ of the nonlinear system during the ascending velocity sweep (2D RANS simulation with deformable mesh). Bottom: Evolution of the cylinder orbits in the $x$-$y$ plane. The total simulation time was divided into five intervals, coinciding with the time scale of the top graph, to illustrate the change in shape and amplitude of the trajectories across the different response regimes.](images/fig10b.png){#fig-nonlinear-time group="none1"}
 :::
 
 
 
 ## VIV Suppression: Implementation of Helicoidal Strakes
 
-To mitigate the detrimental effects of Vortex-Induced Vibrations, passive flow control devices are often employed in offshore and structural engineering. The configuration for this new simulation was taken from the studies by Korkischko & Meneghini (2010) to evaluate the effectiveness of helicoidal strakes in suppressing these self-sustaining oscillations.
+To mitigate the detrimental effects of Vortex-Induced Vibrations, passive flow control devices are often employed in offshore and structural engineering. The configuration for this new simulation was taken from the studies by Korkischko & Meneghini (2010) to evaluate the effectiveness of helicoidal strakes in suppressing these self-sustaining oscillations. 
 
-The modified geometry consists of a cylinder fitted with three helicoidal strakes arranged at 120-degree intervals. Strakes function by breaking the spanwise correlation of the vortex shedding. Instead of forming a strong, synchronized von Kármán vortex street, the fluid separates at varying phases along the span of the cylinder. This three-dimensional flow disruption prevents the vortices from shedding uniformly along the length of the body, which significantly reduces the net fluctuating lift forces acting on the structure.
+The modified geometry consists of a cylinder fitted with three helicoidal strakes arranged at 120-degree intervals. The 3D CAD model was developed in SolidEdge, exported as an STL file, and then discretized into a computational grid using OpenFOAM's `snappyHexMesh` utility. Strakes function by breaking the spanwise correlation of the vortex shedding. Instead of forming a strong, synchronized von Kármán vortex street, the fluid separates at varying phases along the span of the cylinder. This three-dimensional flow disruption prevents the vortices from shedding uniformly along the length of the body, which significantly reduces the net fluctuating lift forces acting on the structure.
 
 
 ::: {layout-ncol=1}
-![Figure 7: Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees.](images/helix.png){group="none1" width="20%"}
+![Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees.](images/helix.png){#fig-strakesSTL group="none1" width="20%"}
 :::
 
 
 To visually demonstrate the suppression effect, the side-by-side animation below compares the bare cylinder (left) with the straked cylinder (right), both operating at the exact same reduced velocity ($U_r = 6$). 
 
-For the bare cylinder, this velocity falls directly within the upper branch of the synchronization region, resulting in large-amplitude figure-eight movements. In contrast, the cylinder equipped with strakes shows a drastic reduction in transverse and longitudinal oscillation amplitude, fully validating the suppression capabilities of this passive control strategy.
+
 
 ::: {#fig-helix-comparison layout-align="center"}
 ```{=html}
@@ -208,7 +208,7 @@ Comparison of the dynamic response at $U_r=6$. Left: Bare cylinder exhibiting hi
 :::
 
 
-
+For the bare cylinder, this velocity falls directly within the upper branch of the synchronization region, resulting in large-amplitude figure-eight movements. In contrast, the cylinder equipped with strakes shows a drastic reduction in transverse and longitudinal oscillation amplitude, fully validating the suppression capabilities of this passive control strategy.
 
 
 
