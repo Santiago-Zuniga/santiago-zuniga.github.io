@@ -188,7 +188,7 @@ The modified geometry consists of a cylinder fitted with three helicoidal strake
 
 
 ::: {layout-ncol=1}
-![Figure 7: Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees.](images/helix.png){group="none1" width="10%"}
+![Figure 7: Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees.](images/helix.png){group="none1" width="30%"}
 :::
 
 
