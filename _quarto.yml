@@ -23,8 +23,8 @@ website:
         text: Bariloche Urban Wind
       - href: projects/f12026/index.qmd
         text: Formula One 2026 car
-      # - href: projects/cylinder/index.qmd
-      #   text: Vortex-induced vibrations
+      - href: projects/cylinder/index.qmd
+        text: Vortex-induced vibrations
 
 
 format:
