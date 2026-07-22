@@ -188,7 +188,7 @@ The modified geometry consists of a cylinder fitted with three helicoidal strake
 
 
 ::: {layout-ncol=1}
-![Figure 7: Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees.](images/helix.png){group="none1" width="50%"}
+![Figure 7: Geometry of the cylinder showing the implementation of three helicoidal strakes at 120 degrees.](images/helix.png){group="none1" width="10%"}
 :::
 
 
@@ -215,7 +215,8 @@ Comparison of the dynamic response at $U_r=6$. Left: Bare cylinder exhibiting hi
 ### Conclusion
 
 This study demonstrates the capability of OpenFOAM to accurately resolve strongly coupled fluid-structure interaction problems. By comparing dynamic mesh morphing (ALE) and overset (Chimera) techniques, the numerical models successfully captured the intricate dynamics of vortex-induced vibrations, including lock-in, path-dependent hysteresis, and the characteristic figure-eight trajectories. The simulations proved robust enough to handle the added complexity of geometric nonlinearities, accurately predicting the extended synchronization regime and the delayed transition between response branches. Finally, the successful implementation of helicoidal strakes highlighted the practical engineering value of this CFD framework, proving it to be a reliable tool for designing and evaluating passive flow control devices.
-***
+
+
 
 ## References
 
